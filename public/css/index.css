@@ -1,0 +1,346 @@
+/* card bgs */
+/* labels */
+/* BOARD NAME */
+#board-name {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  width: 100%;
+  text-transform: uppercase;
+}
+
+/* LIST CONTAINER */
+.list-section {
+  margin: 0 0 1rem;
+  /* CARD CONTAINER */
+}
+.list-section .list-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.25rem 0;
+  margin: 0 3rem;
+}
+.list-section .card-section {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 1rem 3rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+.list-section .card-section .card-title {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin: 0;
+}
+.list-section .card-section h1,
+.list-section .card-section h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.list-section .card-section .labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  /* background colors for each label type */
+}
+.list-section .card-section .labels .label {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: rgb(255, 255, 255);
+}
+.list-section .card-section .labels .red {
+  background-color: #EB5A46;
+}
+.list-section .card-section .labels .orange {
+  background-color: #FF9F1A;
+}
+.list-section .card-section .labels .yellow {
+  background-color: #F2D600;
+}
+.list-section .card-section .labels .green {
+  background-color: #61BD4F;
+}
+.list-section .card-section .labels .lime {
+  background-color: #51E898;
+}
+.list-section .card-section .labels .sky {
+  background-color: #00C2E0;
+}
+.list-section .card-section .labels .blue {
+  background-color: #0079BF;
+}
+.list-section .card-section .labels .pink {
+  background-color: #FF78CB;
+}
+.list-section .card-section .labels .purple {
+  background-color: #C377E0;
+}
+.list-section .card-section .labels .null {
+  background-color: #B3BAC5;
+}
+.list-section .card-section .labels .black {
+  background-color: #344563;
+}
+.list-section .card-section .card-desc img {
+  max-width: 100%;
+}
+
+.styles .red-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(235, 90, 70, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .orange-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 159, 26, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .yellow-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(242, 214, 0, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .green-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(97, 189, 79, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .lime-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(81, 232, 152, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .sky-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(0, 194, 224, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .blue-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(0, 121, 191, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .black-card {
+  color: rgb(255, 255, 255);
+  background-color: rgba(52, 69, 99, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .pink-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 120, 203, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .purple-card {
+  color: rgb(0, 0, 0);
+  background-color: rgba(195, 119, 224, 0.5);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .null-card {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+}
+.styles .card-desc {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border: 0px solid transparent;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+/* TOP SECTION STYLING */
+#left {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: rgb(235, 235, 235);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  min-width: 35%;
+}
+#left span {
+  display: flex;
+  gap: 0.25rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+#left h3 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid #000000;
+}
+#left #buttons {
+  margin-top: 1rem;
+}
+#left #buttons #print-button {
+  font-size: 2rem;
+  color: rgb(133, 133, 133);
+  background-color: transparent;
+  border: 0px solid transparent;
+  transition: color 250ms;
+  cursor: pointer;
+}
+#left #buttons #print-button:hover {
+  color: #000000;
+}
+
+#select-lists {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin: 0 1rem;
+}
+
+#select-lists label {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+#options {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+#options h3 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid #000000;
+}
+
+#list-checkboxes,
+#detail-checkboxes {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+#list-checkboxes span,
+#detail-checkboxes span {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  background-color: #eeeeee;
+  padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+  border-radius: 500px;
+  transition: background-color 250ms;
+}
+#list-checkboxes span:hover,
+#detail-checkboxes span:hover {
+  background-color: #aaaaaa;
+}
+
+/* all children of main#lists are hidden unless given the print class, done by selecting the corresponding checkbox */
+#lists > * {
+  display: none;
+}
+
+#lists > .print {
+  display: block;
+}
+
+.no-titles .list-section .card-section .card-title {
+  display: none;
+}
+
+.no-labels .list-section .card-section .labels {
+  display: none;
+}
+
+.no-descs .list-section .card-section .card-desc {
+  display: none;
+}
+
+.lists-only .list-section .card-section {
+  display: none;
+}
+
+/* don't show top section on the final print page */
+@media print {
+  .hide-from-print {
+    display: none !important;
+  }
+
+  pre,
+blockquote {
+    border: 1px solid #999999;
+    page-break-inside: avoid;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  .list-break .list-section .list-title {
+    page-break-before: always;
+  }
+  .list-break .list-section:first-child .list-title {
+    page-break-before: avoid;
+  }
+
+  .lists-only .list-section .list-title {
+    page-break-before: unset;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  .card-section {
+    page-break-inside: avoid;
+  }
+}

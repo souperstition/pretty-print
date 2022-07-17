@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/f9009d8fbf.js" crossorigin="anonymous"></script>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <link rel="stylesheet" href="./css/power-up.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+    <form class="hide-from-print" id="select-lists">
+        <div id="left">
+            <h3>Formatting Options:</h3>
+            <span>
+                <input type="checkbox" id="style-selector" name="style-selector" checked /><label
+                    for="style-selector">Card backgrounds</label>
+            </span>
+            <span>
+                <input type="checkbox" id="break-lists" name="style-selector" checked /><label
+                    for="style-selector">Start each list on a new page</label>
+            </span>
+            <div id="buttons">
+                <button title="Ready to print!" id="print-button">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="options">
+            <h3>Lists:</h3>
+            <div id="list-checkboxes"></div>
+            <h3>Card Details:</h3>
+            <div id="detail-checkboxes">
+                <span><input type="checkbox" id="card-titles" name="card-titles" value="card-titles" checked><label
+                        for="card-title">Titles</label></span>
+                <span><input type="checkbox" id="card-labels" name="card-labels" value="card-labels" checked><label
+                        for="card-labels">Labels</label></span>
+                <span><input type="checkbox" id="card-descs" name="card-descs" value="card-descs" checked><label
+                        for="card-desc">Descriptions</label></span>
+                <span><input type="checkbox" id="lists-only" name="lists-only" value="lists-only"><label
+                        for="lists-only">Show Lists Only (hides all cards)</label></span>
+            </div>
+        </div>
+
+    </form>
+    <section id="wrapper" class="styles">
+        <h1 id="board-name" class="print"></h1>
+        <main id="lists" class="print list-break"></main>
+    </section>
+
+    <script type="module" src="./js/print.mjs"></script>
+</body>
+
+</html>

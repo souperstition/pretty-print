@@ -15,7 +15,7 @@
 .list-section {
     margin: 0 0 1rem;
 
-     
+
     .list-title {
         @include font(700, 2.25rem);
         text-transform: uppercase;
@@ -38,9 +38,11 @@
             margin: 0;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             @include font(600, 1rem);
         }
+
         .labels {
             display: flex;
             flex-wrap: wrap;
@@ -54,42 +56,54 @@
                 border-radius: 0.25rem;
                 color: $white;
             }
+
             /* background colors for each label type */
             .red {
                 background-color: $label-red;
             }
+
             .orange {
                 background-color: $label-orange;
             }
+
             .yellow {
                 background-color: $label-yellow;
             }
+
             .green {
                 background-color: $label-green;
             }
+
             .lime {
                 background-color: $label-lime;
             }
+
             .sky {
                 background-color: $label-sky;
             }
+
             .blue {
                 background-color: $label-blue;
             }
+
             .pink {
                 background-color: $label-pink;
             }
+
             .purple {
                 background-color: $label-purple;
             }
+
             .null {
                 background-color: $label-null;
             }
+
             .black {
                 background-color: $label-black;
             }
 
         }
+
         .card-desc {
             img {
                 max-width: 100%;
@@ -103,37 +117,47 @@
     .red-card {
         @include colors($black, $red);
     }
+
     .orange-card {
         @include colors($black, $orange);
     }
+
     .yellow-card {
         @include colors($black, $yellow);
     }
+
     .green-card {
         @include colors($black, $green);
     }
+
     .lime-card {
         @include colors($black, $lime);
     }
+
     .sky-card {
         @include colors($black, $sky);
     }
+
     .blue-card {
         @include colors($black, $blue);
     }
+
     .black-card {
         @include colors($white, $dark-blue);
     }
+
     .pink-card {
         @include colors($black, $pink);
     }
+
     .purple-card {
         @include colors($black, $purple);
     }
+
     .null-card {
         @include colors($black, $white);
     }
-    
+
     .card-desc {
         @include colors($black, $white);
         padding: 1rem;
@@ -154,23 +178,26 @@
     border-radius: 0.25rem;
     padding: 0.5rem;
     min-width: 35%;
-      span {
+
+    span {
         display: flex;
         gap: 0.25rem;
         align-items: flex-start;
         margin-bottom: 0.5rem;
-      }
+    }
 
-      h3 {
+    h3 {
         font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    width: 100%;
-    border-bottom: 1px solid #000000;
-      }
-      #buttons {
+        font-weight: 600;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        width: 100%;
+        border-bottom: 1px solid #000000;
+    }
+
+    #buttons {
         margin-top: 1rem;
+
         #print-button {
             font-size: 2rem;
             color: $gray;
@@ -178,29 +205,33 @@
             border: 0px solid transparent;
             transition: color 250ms;
             cursor: pointer;
+
             &:hover {
                 color: #000000;
             }
-          }
+        }
     }
 }
-  
-  #select-lists {
+
+#select-lists {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 2rem;
-    margin: 0 1rem; 
-  }
-  #select-lists label {
+    margin: 0 1rem;
+}
+
+#select-lists label {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     font-size: 0.75rem;
-  }
-  #options {
+}
+
+#options {
     padding: 0.5rem;
     margin-top: 0.5rem;
-        h3 {
+
+    h3 {
         font-family: "Open Sans", sans-serif;
         font-weight: 600;
         font-size: 1rem;
@@ -209,12 +240,15 @@
         border-bottom: 1px solid #000000;
     }
 }
-  #list-checkboxes, #detail-checkboxes {
+
+#list-checkboxes,
+#detail-checkboxes {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 0.5rem;
     flex-wrap: wrap;
+
     span {
         display: flex;
         gap: 0.25rem;
@@ -223,23 +257,25 @@
         padding: 0.25rem 0.5rem 0.25rem 0.25rem;
         border-radius: 500px;
         transition: background-color 250ms;
+
         &:hover {
             background-color: #aaaaaa;
-          }
-      }
-  }
+        }
+    }
+}
 
-  
-  
-  /* all children of main#lists are hidden unless given the print class, done by selecting the corresponding checkbox */
-  #lists > * {
+
+
+/* all children of main#lists are hidden unless given the print class, done by selecting the corresponding checkbox */
+#lists>* {
     display: none;
-  }
-  #lists > .print {
-    display: block;
-  }
+}
 
- .no-titles {
+#lists>.print {
+    display: block;
+}
+
+.no-titles {
     .list-section {
         .card-section {
             .card-title {
@@ -247,9 +283,9 @@
             }
         }
     }
-  }
+}
 
-  .no-labels {
+.no-labels {
     .list-section {
         .card-section {
             .labels {
@@ -257,9 +293,9 @@
             }
         }
     }
-  }
+}
 
-  .no-descs {
+.no-descs {
     .list-section {
         .card-section {
             .card-desc {
@@ -267,34 +303,37 @@
             }
         }
     }
-  }
+}
 
-  .lists-only {
+.lists-only {
     .list-section {
         .card-section {
             display: none;
         }
     }
-  }
-  
-  /* don't show top section on the final print page */
-  @media print {
+}
+
+/* don't show top section on the final print page */
+@media print {
     .hide-from-print {
-      display: none !important;
+        display: none !important;
     }
+
     pre,
     blockquote {
-      border: 1px solid #999999;
-      page-break-inside: avoid;
+        border: 1px solid #999999;
+        page-break-inside: avoid;
     }
+
     tr {
-      page-break-inside: avoid;
+        page-break-inside: avoid;
     }
-    
+
     .list-break {
         .list-section .list-title {
             page-break-before: always;
         }
+
         .list-section:first-child .list-title {
             page-break-before: avoid;
         }
@@ -304,32 +343,32 @@
         .list-section .list-title {
             page-break-before: unset;
         }
-      }
-    
-   
+    }
+
+
 
     a[href]:after {
-      content: " (" attr(href) ")";
+        content: " (" attr(href) ")";
     }
+
     abbr[title]:after {
-      content: " (" attr(title) ")";
+        content: " (" attr(title) ")";
     }
+
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
-      content: "";
+        content: "";
     }
-    
+
     thead {
-      display: table-header-group;
+        display: table-header-group;
     }
-    
+
     img {
-      max-width: 100% !important;
+        max-width: 100% !important;
     }
+
     .card-section {
         page-break-inside: avoid;
-      }
-  }
-
-
-
+    }
+}
