@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Pretty Print
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+---
 
-## Available Scripts
+Sometimes it's handy to just have all your cards and their descriptions in one list. Maybe you want to print out your cards or export them to PDF.
 
-In the project directory, you can run:
+With this power-up, you can choose which lists you want. The list, all its cards, their labels, and their descriptions will appear, fully formatted, ready to print or save.
 
-### `npm start`
+## How to Use
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Try these tips to get the most out of this power-up.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Tip #1:
 
-### `npm test`
+You can use this power-up to export your board into a nicely formatted PDF document. Instead of choosing a printer, select "Save as PDF" in your print settings:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![save as pdf](https://cdn.glitch.global/2a75c8f8-e3cd-4a74-9533-882132c11066/save-pdf.png?v=1657900169598)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tip #2: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Make sure to check your printer settings if you aren't happy with how your page looks.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![printer settings](https://cdn.glitch.global/2a75c8f8-e3cd-4a74-9533-882132c11066/print-settings.png?v=1657899461068)
 
-### `npm run eject`
+I usually go with the following:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Top and Bottom Margins: 0.25in
+- Left and Right Margins: 0
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Tip #3:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If you have a lot of empty page space happening on your print preview, here are some things you can try to get it the way you like:
 
-## Learn More
+- Check or uncheck the box that says "Start each list on a new page." It's enabled by default, which makes sure you don't have a list title showing up at the end of a page. You can disable it if you don't want this option.
+- Try printing out just 2-3 lists at a time. Sometimes this can help in grouping the lists more appropriately.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Tip #4:
 
-### Code Splitting
+You can disable the card colors to save printer ink! Just check the box that says "Card backgrounds" and that formatting will disappear.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you do want the colors to show up in print; however, make sure you double check your printer settings and turn on background graphics:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![enable background graphics](https://cdn.glitch.global/2a75c8f8-e3cd-4a74-9533-882132c11066/background-graphics.png?v=1657900036578)
