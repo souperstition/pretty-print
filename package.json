@@ -22,7 +22,7 @@
     "node": "16.x"
   },
   "repository": {
-    "url": "https://itsdani.me/pretty-print"
+    "url": "https://pretty-print-board.herokuapp.com/"
   },
   "license": "MIT",
   "keywords": [
