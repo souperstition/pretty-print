@@ -1,5 +1,3 @@
-/* card bgs */
-/* labels */
 /* BOARD NAME */
 #board-name {
   font-family: "Open Sans", sans-serif;
@@ -51,12 +49,12 @@
   margin: 0;
 }
 
+/* background colors for each label type */
 .labels {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 0.5rem;
-  /* background colors for each label type */
 }
 .labels .label {
   font-family: "Open Sans", sans-serif;

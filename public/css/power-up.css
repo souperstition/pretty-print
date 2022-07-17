@@ -268,7 +268,6 @@ textarea {
  * 2. Remove the padding in IE 10.
  */
 
-[type="checkbox"],
 [type="radio"] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
@@ -796,7 +795,6 @@ fieldset {
   padding: 0;
   margin-bottom: 15px;
 }
-label,
 legend {
   color: #5E6C84;
   display: block;
@@ -806,7 +804,6 @@ legend {
   margin-bottom: 4px;
   margin-top: 12px;
 }
-label > input,
 label > select {
   display: block;
   margin-top: 4px;
