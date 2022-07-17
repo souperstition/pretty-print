@@ -14,9 +14,9 @@
 /* LIST CONTAINER */
 .list-section {
   margin: 0 0 1rem;
-  /* CARD CONTAINER */
 }
-.list-section .list-title {
+
+.list-title {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 2.25rem;
@@ -25,7 +25,9 @@
   padding: 0.25rem 0;
   margin: 0 3rem;
 }
-.list-section .card-section {
+
+/* CARD CONTAINER */
+.card-section {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -33,7 +35,14 @@
   padding: 1rem;
   border-radius: 0.25rem;
 }
-.list-section .card-section .card-title {
+.card-section h1,
+.card-section h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.card-title {
   width: 100%;
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
@@ -41,20 +50,15 @@
   border-bottom: 1px solid rgb(0, 0, 0);
   margin: 0;
 }
-.list-section .card-section h1,
-.list-section .card-section h2 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-}
-.list-section .card-section .labels {
+
+.labels {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 0.5rem;
   /* background colors for each label type */
 }
-.list-section .card-section .labels .label {
+.labels .label {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 0.75rem;
@@ -63,40 +67,41 @@
   border-radius: 0.25rem;
   color: rgb(255, 255, 255);
 }
-.list-section .card-section .labels .red {
+.labels .red {
   background-color: #EB5A46;
 }
-.list-section .card-section .labels .orange {
+.labels .orange {
   background-color: #FF9F1A;
 }
-.list-section .card-section .labels .yellow {
+.labels .yellow {
   background-color: #F2D600;
 }
-.list-section .card-section .labels .green {
+.labels .green {
   background-color: #61BD4F;
 }
-.list-section .card-section .labels .lime {
+.labels .lime {
   background-color: #51E898;
 }
-.list-section .card-section .labels .sky {
+.labels .sky {
   background-color: #00C2E0;
 }
-.list-section .card-section .labels .blue {
+.labels .blue {
   background-color: #0079BF;
 }
-.list-section .card-section .labels .pink {
+.labels .pink {
   background-color: #FF78CB;
 }
-.list-section .card-section .labels .purple {
+.labels .purple {
   background-color: #C377E0;
 }
-.list-section .card-section .labels .null {
+.labels .null {
   background-color: #B3BAC5;
 }
-.list-section .card-section .labels .black {
+.labels .black {
   background-color: #344563;
 }
-.list-section .card-section .card-desc img {
+
+.card-desc img {
   max-width: 100%;
 }
 
@@ -177,7 +182,7 @@
 }
 
 /* TOP SECTION STYLING */
-#left {
+#formatting-options {
   margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -188,13 +193,13 @@
   padding: 0.5rem;
   min-width: 35%;
 }
-#left span {
+#formatting-options span {
   display: flex;
   gap: 0.25rem;
   align-items: flex-start;
   margin-bottom: 0.5rem;
 }
-#left h3 {
+#formatting-options h3 {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 1rem;
@@ -202,10 +207,11 @@
   width: 100%;
   border-bottom: 1px solid #000000;
 }
-#left #buttons {
+
+#buttons {
   margin-top: 1rem;
 }
-#left #buttons #print-button {
+#buttons #print-button {
   font-size: 2rem;
   color: rgb(133, 133, 133);
   background-color: transparent;
@@ -213,29 +219,28 @@
   transition: color 250ms;
   cursor: pointer;
 }
-#left #buttons #print-button:hover {
+#buttons #print-button:hover {
   color: #000000;
 }
 
-#select-lists {
+#print-settings {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 2rem;
   margin: 0 1rem;
 }
-
-#select-lists label {
+#print-settings label {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 0.75rem;
 }
 
-#options {
+#print-options {
   padding: 0.5rem;
   margin-top: 0.5rem;
 }
-#options h3 {
+#print-options h3 {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 1rem;

@@ -14,103 +14,101 @@
 /* LIST CONTAINER */
 .list-section {
     margin: 0 0 1rem;
+}
 
+.list-title {
+    @include font(700, 2.25rem);
+    text-transform: uppercase;
+    width: 100%;
+    padding: 0.25rem 0;
+    margin: 0 3rem;
+}
 
-    .list-title {
-        @include font(700, 2.25rem);
-        text-transform: uppercase;
-        width: 100%;
-        padding: 0.25rem 0;
-        margin: 0 3rem;
+/* CARD CONTAINER */
+.card-section {
+    @include font(400, 1rem);
+    margin: 1rem 3rem;
+    padding: 1rem;
+    border-radius: 0.25rem;
+
+    h1,
+    h2 {
+        @include font(600, 1rem);
     }
+}
 
-    /* CARD CONTAINER */
-    .card-section {
-        @include font(400, 1rem);
-        margin: 1rem 3rem;
-        padding: 1rem;
+.card-title {
+    width: 100%;
+    @include font(700, 1.5rem);
+    border-bottom: 1px solid $black;
+    margin: 0;
+}
+
+.labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+    .label {
+        @include font(600, 0.75rem);
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
         border-radius: 0.25rem;
-
-        .card-title {
-            width: 100%;
-            @include font(700, 1.5rem);
-            border-bottom: 1px solid $black;
-            margin: 0;
-        }
-
-        h1,
-        h2 {
-            @include font(600, 1rem);
-        }
-
-        .labels {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 0.5rem;
-
-            .label {
-                @include font(600, 0.75rem);
-                display: inline-block;
-                padding: 0.25rem 0.5rem;
-                border-radius: 0.25rem;
-                color: $white;
-            }
-
-            /* background colors for each label type */
-            .red {
-                background-color: $label-red;
-            }
-
-            .orange {
-                background-color: $label-orange;
-            }
-
-            .yellow {
-                background-color: $label-yellow;
-            }
-
-            .green {
-                background-color: $label-green;
-            }
-
-            .lime {
-                background-color: $label-lime;
-            }
-
-            .sky {
-                background-color: $label-sky;
-            }
-
-            .blue {
-                background-color: $label-blue;
-            }
-
-            .pink {
-                background-color: $label-pink;
-            }
-
-            .purple {
-                background-color: $label-purple;
-            }
-
-            .null {
-                background-color: $label-null;
-            }
-
-            .black {
-                background-color: $label-black;
-            }
-
-        }
-
-        .card-desc {
-            img {
-                max-width: 100%;
-            }
-        }
+        color: $white;
     }
 
+    /* background colors for each label type */
+    .red {
+        background-color: $label-red;
+    }
+
+    .orange {
+        background-color: $label-orange;
+    }
+
+    .yellow {
+        background-color: $label-yellow;
+    }
+
+    .green {
+        background-color: $label-green;
+    }
+
+    .lime {
+        background-color: $label-lime;
+    }
+
+    .sky {
+        background-color: $label-sky;
+    }
+
+    .blue {
+        background-color: $label-blue;
+    }
+
+    .pink {
+        background-color: $label-pink;
+    }
+
+    .purple {
+        background-color: $label-purple;
+    }
+
+    .null {
+        background-color: $label-null;
+    }
+
+    .black {
+        background-color: $label-black;
+    }
+
+}
+
+.card-desc {
+    img {
+        max-width: 100%;
+    }
 }
 
 .styles {
@@ -168,7 +166,7 @@
 
 
 /* TOP SECTION STYLING */
-#left {
+#formatting-options {
     margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -194,40 +192,41 @@
         width: 100%;
         border-bottom: 1px solid #000000;
     }
+}
 
-    #buttons {
-        margin-top: 1rem;
+#buttons {
+    margin-top: 1rem;
 
-        #print-button {
-            font-size: 2rem;
-            color: $gray;
-            background-color: transparent;
-            border: 0px solid transparent;
-            transition: color 250ms;
-            cursor: pointer;
+    #print-button {
+        font-size: 2rem;
+        color: $gray;
+        background-color: transparent;
+        border: 0px solid transparent;
+        transition: color 250ms;
+        cursor: pointer;
 
-            &:hover {
-                color: #000000;
-            }
+        &:hover {
+            color: #000000;
         }
     }
 }
 
-#select-lists {
+#print-settings {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 2rem;
     margin: 0 1rem;
+
+    label {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        font-size: 0.75rem;
+    }
 }
 
-#select-lists label {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-    font-size: 0.75rem;
-}
 
-#options {
+#print-options {
     padding: 0.5rem;
     margin-top: 0.5rem;
 

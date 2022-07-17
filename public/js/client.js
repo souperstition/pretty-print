@@ -15,7 +15,8 @@ TrelloPowerUp.initialize({
         return t.modal({
           title: "Pretty Print",
           url: '../print.html',
-          fullscreen: true
+          fullscreen: true,
+          accentColor: '#00C2E0'
         });
       }
     }];
