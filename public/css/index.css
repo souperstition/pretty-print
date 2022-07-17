@@ -6,6 +6,8 @@
   text-align: center;
   border-bottom: 1px solid rgb(0, 0, 0);
   width: 100%;
+  line-height: 3rem;
+  margin: 1rem 0;
   text-transform: uppercase;
 }
 
