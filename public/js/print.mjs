@@ -1,10 +1,10 @@
 /* global TrelloPowerUp */
 
-import {unified} from 'https://esm.sh/unified@10?bundle'
-import remarkParse from 'https://cdn.skypack.dev/remark-parse@10?min'
-import remarkGfm from 'https://cdn.skypack.dev/remark-gfm@3?min'
-import remarkRehype from 'https://cdn.skypack.dev/remark-rehype@10?min'
-import rehypeStringify from 'https://cdn.skypack.dev/rehype-stringify@9?min'
+import {unified} from '../../node_modules/unified'
+import remarkParse from '../../node_modules/remark-parse'
+import remarkGfm from '../../node_modules/remark-gfm'
+import remarkRehype from '../../node_modules/remark-rehype'
+import rehypeStringify from '../../node_modules/rehype-stringify'
 
 const Promise = TrelloPowerUp.Promise;
 const t = TrelloPowerUp.iframe();
