@@ -4,7 +4,7 @@
   "description": "Export and print your board with support for Markdown formatting.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "sass": "sass --watch scss:public/css --no-source-map"
   },
   "dependencies": {
