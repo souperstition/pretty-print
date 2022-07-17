@@ -263,6 +263,10 @@
     }
 }
 
+input[type=checkbox] {
+    margin-bottom: 0;
+}
+
 
 
 /* all children of main#lists are hidden unless given the print class, done by selecting the corresponding checkbox */
