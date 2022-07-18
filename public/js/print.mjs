@@ -92,7 +92,13 @@ t.render(() => {
       filteredCards.forEach(async (card) => {
         const cardSection = document.createElement('section');
         cardSection.classList.add('card-section');
-        cardSection.classList.add(`${card.cover.color}-card`);
+
+        if (card.idUploadedBackground) {
+          cardSection.setAttribute('style', `background-image: url(${card.scaled[0].url})`)
+        } else {
+          cardSection.classList.add(`${card.cover.color}-card`);
+        }
+        
         cardSection.innerHTML += `<h2 class="card-title">${card.name}</h2>`;
 
   

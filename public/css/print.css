@@ -1,3 +1,7 @@
+@page {
+    margin: 0.25in 0;
+}
+
 @media print {
 
     /* don't show top section on the final print page */
