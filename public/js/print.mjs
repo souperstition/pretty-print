@@ -29,6 +29,8 @@ const toggleClassName = (selector, element, className) => {
 
 const styleSelector = document.getElementById('style-selector');
 const breakLists = document.getElementById('break-lists');
+const breakCards = document.getElementById('break-cards');
+const filterImgs = document.getElementById('filter-images');
 const cardTitles = document.getElementById('card-titles');
 const cardLabels = document.getElementById('card-labels');
 const cardDescs = document.getElementById('card-descs');
@@ -36,6 +38,8 @@ const listsOnly = document.getElementById('lists-only');
 
 toggleClassName(styleSelector, wrapper, 'styles');
 toggleClassName(breakLists, mainSection, 'list-break');
+toggleClassName(breakCards, mainSection, 'card-break');
+toggleClassName(filterImgs, mainSection, 'img-filter');
 toggleClassName(cardTitles, mainSection, 'no-titles');
 toggleClassName(cardLabels, mainSection, 'no-labels');
 toggleClassName(cardDescs, mainSection, 'no-descs');

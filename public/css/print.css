@@ -23,13 +23,9 @@
         page-break-before: avoid;
     }
 
-
     .lists-only .list-section .list-title {
         page-break-before: unset;
     }
-
-
-
 
     a[href]:after {
         content: " (" attr(href) ")";
