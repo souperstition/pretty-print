@@ -1,0 +1,58 @@
+@page {
+    margin: 0;
+}
+
+@media print {
+    /* don't show top section on the final print page */
+    .hide-from-print {
+        display: none !important;
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999999;
+        page-break-inside: avoid;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    
+    .list-section .list-title {
+            page-break-before: always;
+        }
+
+    .list-section:first-child .list-title {
+            page-break-before: avoid;
+        }
+    
+    .lists-only .list-section .list-title {
+            page-break-before: unset;
+        }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    .card-section {
+        page-break-inside: avoid;
+    }
+}

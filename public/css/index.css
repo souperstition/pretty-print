@@ -23,7 +23,7 @@
   text-transform: uppercase;
   width: 100%;
   padding: 0.25rem 0;
-  margin: 0 3rem;
+  margin: 0 1rem;
 }
 
 /* CARD CONTAINER */
@@ -31,7 +31,7 @@
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  margin: 1rem 3rem;
+  margin: 1rem;
   padding: 1rem;
   border-radius: 0.25rem;
 }
@@ -299,57 +299,4 @@ input[type=checkbox] {
 
 .lists-only .list-section .card-section {
   display: none;
-}
-
-/* don't show top section on the final print page */
-@media print {
-  .hide-from-print {
-    display: none !important;
-  }
-
-  pre,
-blockquote {
-    border: 1px solid #999999;
-    page-break-inside: avoid;
-  }
-
-  tr {
-    page-break-inside: avoid;
-  }
-
-  .list-break .list-section .list-title {
-    page-break-before: always;
-  }
-  .list-break .list-section:first-child .list-title {
-    page-break-before: avoid;
-  }
-
-  .lists-only .list-section .list-title {
-    page-break-before: unset;
-  }
-
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  a[href^="#"]:after,
-a[href^="javascript:"]:after {
-    content: "";
-  }
-
-  thead {
-    display: table-header-group;
-  }
-
-  img {
-    max-width: 100% !important;
-  }
-
-  .card-section {
-    page-break-inside: avoid;
-  }
 }
