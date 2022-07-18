@@ -46,11 +46,18 @@
 
     img {
         max-width: 100%;
+    }
+
+    .img-filter img {
         -webkit-filter: invert(100%);
         filter: invert(100%);
     }
 
     .card-section {
         page-break-inside: avoid;
+    }
+
+    .card-break .card-section {
+        page-break-inside: unset;
     }
 }
