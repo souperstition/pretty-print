@@ -94,7 +94,7 @@ t.render(() => {
         cardSection.classList.add('card-section');
 
         if (card.cover.idUploadedBackground !== null) {
-          cardSection.style.backgroundImage = card.cover.sharedSourceUrl;
+          cardSection.setAttribute('style', `background-image: url(${card.cover.sharedSourceUrl}; background-repeat: no-repeat; background-size: cover)`)
         } else {
           cardSection.classList.add(`${card.cover.color}-card`);
         }
