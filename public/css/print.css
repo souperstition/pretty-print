@@ -1,7 +1,3 @@
-@page {
-    margin: 0.25in 0;
-}
-
 @media print {
     /* don't show top section on the final print page */
     .hide-from-print {
@@ -18,18 +14,21 @@
         page-break-inside: avoid;
     }
 
-    
-    .list-section .list-title {
+    .list-break .list-section .list-title {
             page-break-before: always;
         }
 
-    .list-section:first-child .list-title {
+        .list-break  .list-section:first-child .list-title {
             page-break-before: avoid;
         }
     
+
     .lists-only .list-section .list-title {
             page-break-before: unset;
         }
+    
+
+
 
     a[href]:after {
         content: " (" attr(href) ")";
