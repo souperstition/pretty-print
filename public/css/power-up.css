@@ -9,9 +9,11 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
 }
 
 /* Sections
@@ -23,6 +25,19 @@
 
 body {
   margin: 0;
+}
+
+html,
+body,
+select,
+textarea,
+button {
+  color: #172b4d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 }
 
 /**
@@ -41,6 +56,9 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  font-weight: 600;
+  line-height: 28px;
+  margin: 0 0 12px;
 }
 
 /* Grouping content
@@ -52,19 +70,18 @@ h1 {
  */
 
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+  background-color: rgba(9, 30, 66, 0.13);
+  border: 0;
+  height: 1px;
+  margin: 16px 0;
+  padding: 0;
+  width: 100%;
 }
 
 /* Text-level semantics
@@ -75,7 +92,19 @@ pre {
  */
 
 a {
+  color: #172b4d;
   background-color: transparent;
+}
+
+a:hover {
+  color: #091e42;
+}
+
+a.disabled,
+a.disabled:hover {
+  color: #5e6c84;
+  cursor: default;
+  text-decoration: none;
 }
 
 /**
@@ -84,9 +113,12 @@ a {
  */
 
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
 }
 
 /**
@@ -106,8 +138,10 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 /**
@@ -162,10 +196,14 @@ button,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
 }
 
 /**
@@ -173,7 +211,8 @@ textarea {
  * 1. Show the overflow in Edge.
  */
 
-button { /* 1 */
+button {
+  /* 1 */
   overflow: visible;
 }
 
@@ -183,42 +222,9 @@ button { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
-}
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
 }
 
 /**
@@ -227,22 +233,32 @@ button:-moz-focusring,
 
 fieldset {
   padding: 0.35em 0.75em 0.625em;
+  border: 0;
+  margin-bottom: 15px;
 }
 
 /**
  * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
 
 legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+  box-sizing: border-box;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+  color: #5e6c84;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  margin-bottom: 4px;
+  margin-top: 12px;
 }
 
 /**
@@ -254,21 +270,15 @@ progress {
 }
 
 /**
- * Remove the default vertical scrollbar in IE 10+.
- */
-
-textarea {
-  overflow: auto;
-}
-
-/**
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
 
 [type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
 /**
@@ -286,8 +296,10 @@ textarea {
  */
 
 [type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
 }
 
 /**
@@ -304,8 +316,10 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
 }
 
 /* Interactive
@@ -351,44 +365,35 @@ template {
   content: "";
   display: table;
 }
+
 .u-hidden {
   display: none;
 }
+
 .u-monospace {
-  font-family: "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Courier, monospace;
+  font-family: "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo,
+    Courier, monospace;
 }
+
 .u-quiet {
-  color: #5E6C84;
+  color: #5e6c84;
 }
+
 .u-overflow-auto {
   overflow: auto;
 }
+
 .u-text-align-center {
   text-align: center;
 }
-html,
-body,
-select,
-textarea,
-button {
-  color: #172B4D;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-}
-h1 {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 28px;
-  margin: 0 0 12px;
-}
+
 h2 {
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   margin: 0 0 8px;
 }
+
 h3,
 h4,
 h5,
@@ -398,34 +403,25 @@ h6 {
   line-height: 20px;
   margin: 0 0 8px;
 }
-hr {
-  background-color: rgba(9, 30, 66, 0.13);
-  border: 0;
-  height: 1px;
-  margin: 16px 0;
-  padding: 0;
-  width: 100%;
-}
-a {
-  color: #172B4D;
-}
-a:hover {
-  color: #091E42;
-}
-a.disabled,
-a.disabled:hover {
-  color: #5E6C84;
-  cursor: default;
-  text-decoration: none;
-}
+
 p {
   margin: 0 0 8px;
 }
+
 div::selection {
   background: transparent;
 }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
 pre {
-  background-color: #F4F5F7;
+  font-family: monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+  background-color: #f4f5f7;
   border-radius: 3px;
   box-shadow: 0 0 0 1px rgba(9, 30, 66, 0.13);
   margin: 12px 0;
@@ -437,30 +433,24 @@ pre {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+
+pre,
+code,
+tt {
+  font-family: "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo,
+    Courier, monospace;
+  line-height: 20px;
+}
+
 pre::-webkit-scrollbar {
   height: 8px;
   width: 8px;
 }
-pre::-webkit-scrollbar-button:start:decrement,
-pre::-webkit-scrollbar-button:end:increment {
-  background: transparent;
-  display: none;
-}
+
 pre::-webkit-scrollbar-track-piece {
   background: rgba(9, 30, 66, 0.08);
 }
-pre::-webkit-scrollbar-track-piece:vertical:start {
-  border-radius: 4px 4px 0 0;
-}
-pre::-webkit-scrollbar-track-piece:vertical:end {
-  border-radius: 0 0 4px 4px;
-}
-pre::-webkit-scrollbar-track-piece:horizontal:start {
-  border-radius: 4px 0 0 4px;
-}
-pre::-webkit-scrollbar-track-piece:horizontal:end {
-  border-radius: 0 4px 4px 0;
-}
+
 pre::-webkit-scrollbar-thumb:vertical,
 pre::-webkit-scrollbar-thumb:horizontal {
   background: rgba(9, 30, 66, 0.13);
@@ -468,114 +458,129 @@ pre::-webkit-scrollbar-thumb:horizontal {
   display: block;
   height: 48px;
 }
+
+pre::-webkit-scrollbar-button:start:decrement,
+pre::-webkit-scrollbar-button:end:increment {
+  background: transparent;
+  display: none;
+}
+
+pre::-webkit-scrollbar-track-piece:vertical:start {
+  border-radius: 4px 4px 0 0;
+}
+
+pre::-webkit-scrollbar-track-piece:vertical:end {
+  border-radius: 0 0 4px 4px;
+}
+
+pre::-webkit-scrollbar-track-piece:horizontal:start {
+  border-radius: 4px 0 0 4px;
+}
+
+pre::-webkit-scrollbar-track-piece:horizontal:end {
+  border-radius: 0 4px 4px 0;
+}
+
 pre:after {
   clear: both;
   content: "";
   display: table;
 }
+
 code {
-  background-color: #F4F5F7;
+  background-color: #f4f5f7;
   border-radius: 3px;
   box-shadow: 0 0 0 1px rgba(9, 30, 66, 0.13);
-  color: #EB5A46;
+  color: #eb5a46;
   padding: 1px 3px;
   margin: -1px 2px;
 }
+
 pre code {
   background-color: none;
   border-radius: 0;
   box-shadow: none;
-  color: #172B4D;
+  color: #172b4d;
   margin: 0;
   padding: 0;
 }
-pre,
-code,
-tt {
-  font-family: "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Courier, monospace;
-  line-height: 20px;
-}
+
 blockquote {
   border-left: 1px solid rgba(9, 30, 66, 0.13);
-  color: #5E6C84;
+  color: #5e6c84;
   margin: 12px 0 12px 11px;
   padding: 0 0 0 12px;
 }
-ol,
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
   margin-bottom: 8px;
   width: 100%;
+  font-size: inherit;
+  margin-bottom: 8px;
+  width: 100%;
 }
+
 table,
 td,
 th {
   vertical-align: top;
-  border-top: 1px solid #C1C7D0;
-  border-left: 1px solid #C1C7D0;
+  border-top: 1px solid #c1c7d0;
+  border-left: 1px solid #c1c7d0;
 }
+
 td,
 th {
   padding: 6px;
-  border-right: 1px solid #C1C7D0;
-  border-bottom: 1px solid #C1C7D0;
+  border-right: 1px solid #c1c7d0;
+  border-bottom: 1px solid #c1c7d0;
+  text-align: left;
 }
+
 th {
   font-weight: bold;
 }
+
 thead {
-  background: #EBECF0;
+  background: #ebecf0;
 }
+
 tbody {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
+
 dl {
   margin-bottom: 8px;
 }
+
 dt {
   margin-bottom: 8px;
 }
+
 dd {
   margin: 0 0 16px 24px;
 }
-@media print {
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
-  }
-  thead {
-    display: table-header-group;
-  }
-  img {
-    max-width: 100% !important;
-  }
-}
+
 .empty-list,
 .empty {
-  background: #E2E4E6;
-  border: 1px dashed #C4C9CC;
+  background: #e2e4e6;
+  border: 1px dashed #c4c9cc;
   border-radius: 3px;
-  color: #5E6C84;
+  color: #5e6c84;
   display: block;
   padding: 6px;
   text-align: center;
 }
+
 .empty-list {
   border-radius: 6px;
   padding: 25px 6px;
 }
+
 button,
-input[type=button],
-input[type=submit] {
+input[type="button"],
+input[type="submit"] {
   border-radius: 3px;
   box-sizing: border-box;
   cursor: pointer;
@@ -591,108 +596,167 @@ input[type=submit] {
   box-shadow: none;
   border: none;
 }
-button:hover,
-input[type=button]:hover,
-input[type=submit]:hover {
-  background-color: rgba(9, 30, 66, 0.08);
-  box-shadow: none;
-  border: none;
-}
-button:hover .button-icon-dark,
-input[type=button]:hover .button-icon-dark,
-input[type=submit]:hover .button-icon-dark {
-  color: #091E42;
-}
+
 button:focus,
-input[type=button]:focus,
-input[type=submit]:focus {
+input[type="button"]:focus,
+input[type="submit"]:focus {
   outline: 0;
   background-color: rgba(9, 30, 66, 0.08);
   box-shadow: none;
   border: none;
 }
+
 button:active,
-input[type=button]:active,
-input[type=submit]:active {
-  background-color: #E4F0F6;
+input[type="button"]:active,
+input[type="submit"]:active {
+  background-color: #e4f0f6;
   box-shadow: none;
   border: none;
-  color: #0079BF;
+  color: #0079bf;
 }
+
 button:active .button-icon-dark,
-input[type=button]:active .button-icon-dark,
-input[type=submit]:active .button-icon-dark {
-  color: #FFFFFF;
+input[type="button"]:active .button-icon-dark,
+input[type="submit"]:active .button-icon-dark {
+  color: #ffffff;
 }
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  box-shadow: none;
+  border: none;
+}
+
+button:hover .button-icon-dark,
+input[type="button"]:hover .button-icon-dark,
+input[type="submit"]:hover .button-icon-dark {
+  color: #091e42;
+}
+
 button.mod-primary,
-input[type=button].mod-primary,
-input[type=submit].mod-primary {
-  background-color: #0079BF;
+input[type="button"].mod-primary,
+input[type="submit"].mod-primary {
+  background-color: #0079bf;
   box-shadow: none;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
+
 button.mod-primary:hover,
-input[type=button].mod-primary:hover,
-input[type=submit].mod-primary:hover {
-  background-color: #026AA7;
+input[type="button"].mod-primary:hover,
+input[type="submit"].mod-primary:hover {
+  background-color: #026aa7;
   box-shadow: none;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
+
 button.mod-primary:active,
-input[type=button].mod-primary:active,
-input[type=submit].mod-primary:active {
-  background-color: #055A8C;
+input[type="button"].mod-primary:active,
+input[type="submit"].mod-primary:active {
+  background-color: #055a8c;
   box-shadow: none;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
+
 button.mod-danger,
-input[type=button].mod-danger,
-input[type=submit].mod-danger {
-  background-color: #B04632;
+input[type="button"].mod-danger,
+input[type="submit"].mod-danger {
+  background-color: #b04632;
   box-shadow: none;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
+
 button.mod-danger:hover,
-input[type=button].mod-danger:hover,
-input[type=submit].mod-danger:hover {
-  background-color: #EB5A46;
+input[type="button"].mod-danger:hover,
+input[type="submit"].mod-danger:hover {
+  background-color: #eb5a46;
   box-shadow: none;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
+
 button.mod-danger:active,
-input[type=button].mod-danger:active,
-input[type=submit].mod-danger:active {
-  background-color: #933B27;
+input[type="button"].mod-danger:active,
+input[type="submit"].mod-danger:active {
+  background-color: #933b27;
   box-shadow: none;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
+
 button.mod-bottom,
-input[type=button].mod-bottom,
-input[type=submit].mod-bottom {
+input[type="button"].mod-bottom,
+input[type="submit"].mod-bottom {
   margin-bottom: 2px;
   margin-right: 0;
 }
+
 button[disabled],
 button[disabled]:hover,
 button[disabled]:active {
   background-color: rgba(9, 30, 66, 0.04);
   box-shadow: none;
   border: none;
-  color: #A5ADBA;
+  color: #a5adba;
   cursor: not-allowed;
 }
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+textarea {
+  resize: vertical;
+  width: 100%;
+  overflow: auto;
+}
+
+textarea[readonly] {
+  background-color: #fafbfc;
+  box-shadow: inset 0 0 0 2px #ebecf0;
+}
+
 textarea,
-input:not([type=file]) {
-  background-color: #FAFBFC;
+input:not([type="file"]) {
+  background-color: #fafbfc;
   border: none;
-  box-shadow: inset 0 0 0 2px #DFE1E6;
-  color: #172B4D;
+  box-shadow: inset 0 0 0 2px #dfe1e6;
+  color: #172b4d;
   box-sizing: border-box;
   -webkit-appearance: none;
   border-radius: 3px;
@@ -704,75 +768,71 @@ input:not([type=file]) {
   transition-duration: 85ms;
   transition-timing-function: ease;
 }
+
 textarea.full,
-input:not([type=file]).full {
+input:not([type="file"]).full {
   width: 100%;
 }
+
 textarea.is-error,
-input:not([type=file]).is-error {
-  background-color: #FBEDEB;
+input:not([type="file"]).is-error {
+  background-color: #fbedeb;
   border: none;
-  box-shadow: inset 0 0 0 2px #EFB3AB;
+  box-shadow: inset 0 0 0 2px #efb3ab;
 }
+
 textarea:focus,
-input:not([type=file]):focus {
+input:not([type="file"]):focus {
   outline: 0;
 }
+
 input::placeholder,
 textarea::placeholder {
-  color: #5E6C84;
+  color: #5e6c84;
 }
+
 input[type="file"] {
   margin-bottom: 16px;
 }
-input[type="email"]:invalid {
-  box-shadow: none;
-}
+
 input[type="hidden"] {
   display: none;
 }
+
 input[type="radio"] {
   box-shadow: unset;
   display: inline;
   -webkit-appearance: radio;
   min-height: inherit;
 }
+
 input[type="checkbox"] {
-  box-shadow: 0 0 0 2px #DFE1E6;
+  box-shadow: 0 0 0 2px #dfe1e6;
   display: inline;
   -webkit-appearance: checkbox;
   margin-right: 4px;
 }
+
 input[type="checkbox"]:focus {
   border: none;
-  box-shadow: 0 0 0 2px #0079BF;
+  box-shadow: 0 0 0 2px #0079bf;
 }
+
 select {
   max-height: 300px;
   max-width: 500px;
   margin-bottom: 8px;
 }
+
 option[disabled] {
-  color: #5E6C84;
+  color: #5e6c84;
 }
-fieldset {
-  border: 0;
-  padding: 0;
-  margin-bottom: 15px;
-}
-legend {
-  color: #5E6C84;
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px;
-  margin-bottom: 4px;
-  margin-top: 12px;
-}
-label > select {
+
+label>select {
   display: block;
   margin-top: 4px;
 }
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -780,96 +840,76 @@ input[type="search"] {
   width: 100%;
   max-width: 500px;
 }
+
+input[type="email"]:invalid {
+  box-shadow: none;
+}
+
 input[type="text"][readonly],
 input[type="password"][readonly],
 input[type="email"][readonly],
 input[type="search"][readonly] {
-  background-color: #FAFBFC;
-  box-shadow: inset 0 0 0 2px #EBECF0;
+  background-color: #fafbfc;
+  box-shadow: inset 0 0 0 2px #ebecf0;
 }
-textarea {
-  resize: vertical;
-  width: 100%;
-}
-textarea[readonly] {
-  background-color: #FAFBFC;
-  box-shadow: inset 0 0 0 2px #EBECF0;
-}
+
 input[type="text"]:hover,
 input[type="password"]:hover,
 input[type="email"]:hover,
 input[type="search"]:hover,
 textarea:hover {
-  background-color: #EBECF0;
+  background-color: #ebecf0;
   border: none;
-  box-shadow: inset 0 0 0 2px #DFE1E6;
+  box-shadow: inset 0 0 0 2px #dfe1e6;
 }
+
 input[type="text"]:hover.is-error,
 input[type="password"]:hover.is-error,
 input[type="email"]:hover.is-error,
 input[type="search"]:hover.is-error,
 textarea:hover.is-error {
-  background-color: #FBEDEB;
+  background-color: #fbedeb;
   border: none;
-  box-shadow: inset 0 0 0 2px #EC9488;
+  box-shadow: inset 0 0 0 2px #ec9488;
 }
+
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="search"]:focus,
 textarea:focus {
-  background: #FFFFFF;
+  background: #ffffff;
   border: none;
-  box-shadow: inset 0 0 0 2px #0079BF;
+  box-shadow: inset 0 0 0 2px #0079bf;
 }
+
 input[type="text"]:focus.is-error,
 input[type="password"]:focus.is-error,
 input[type="email"]:focus.is-error,
 input[type="search"]:focus.is-error,
 textarea:focus.is-error {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none;
-  box-shadow: inset 0 0 0 2px #EFB3AB;
+  box-shadow: inset 0 0 0 2px #efb3ab;
 }
+
 input[type="text"]:disabled,
 input[type="password"]:disabled,
 input[type="email"]:disabled,
 input[type="search"]:disabled,
 textarea:disabled {
-  background-color: #EBECF0;
+  background-color: #ebecf0;
   box-shadow: none;
-  color: #A5ADBA;
+  color: #a5adba;
   cursor: not-allowed;
   font-weight: normal;
   user-select: none;
 }
-table {
-  font-size: inherit;
-  margin-bottom: 8px;
-  width: 100%;
-}
-table,
-td,
-th {
-  vertical-align: top;
-}
-td,
-th {
-  padding: 5px;
-  text-align: left;
-}
-th {
-  font-weight: bold;
-}
-thead {
-  background: #E2E4E6;
-}
-tbody {
-  background-color: #fff;
-}
+
 .setting-item {
   margin-bottom: 8px;
 }
+
 .big-link {
   border-radius: 3px;
   cursor: pointer;
@@ -878,27 +918,33 @@ tbody {
   padding: 8px 12px;
   text-decoration: underline;
 }
+
 .big-link:hover {
-  color: #000;
-  background-color: #E2E4E6;
+  color: #000000;
+  background-color: #e2e4e6;
 }
+
 .big-link.is-hidden {
   display: none;
 }
+
 .big-link.mod-centered {
   text-align: center;
 }
+
 .basic-attachment-list-item {
   border-radius: 3px;
   cursor: pointer;
   padding: 6px 8px;
   margin-bottom: 4px;
 }
+
 .basic-attachment-list-item:hover {
-  background-color: #E2E4E6;
+  background-color: #e2e4e6;
 }
+
 .authorize-link {
-  background: #D6DADC;
+  background: #d6dadc;
   display: inline-flex;
   box-sizing: border-box;
   cursor: pointer;
@@ -910,42 +956,51 @@ tbody {
   padding: 8px 16px;
   text-align: center;
 }
+
 .authorize-link:hover {
   text-decoration: underline;
 }
+
 .authorize-link .icon-information {
   margin: 0px 4px 0 0;
   padding: 1px;
 }
+
 .authorize-link .icon-information img.icon {
   height: 16px;
   width: 16px;
 }
+
 .quiet-button {
   border-radius: 3px;
-  color: #5E6C84;
+  color: #5e6c84;
   display: block;
   margin: 2px 0;
   padding: 6px 8px;
   position: relative;
   user-select: none;
 }
+
 .quiet-button:hover {
-  background: #D6DADC;
-  color: #172B4D;
+  background: #d6dadc;
+  color: #172b4d;
 }
+
 .quiet-button:active {
-  background: #CDD2D4;
-  color: #172B4D;
+  background: #cdd2d4;
+  color: #172b4d;
 }
+
 .quiet-button-icon {
   left: 7px;
   position: absolute;
   top: 7px;
 }
+
 .quiet-button.mod-with-image {
   padding-left: 28px;
 }
+
 .quiet-button.mod-gutter {
   padding-left: 38px;
 }

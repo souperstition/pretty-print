@@ -7,7 +7,9 @@
     <script src="https://kit.fontawesome.com/f9009d8fbf.js" crossorigin="anonymous"></script>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <link rel="stylesheet" href="./css/power-up.css" />
+    <link rel="stylesheet" href="./css/top.css" />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/user.css" />
     <link rel="stylesheet" href="./css/print.css" />
 </head>
 
@@ -16,12 +18,12 @@
         <div id="formatting-options">
             <h3>Formatting Options:</h3>
             <span>
-                <input type="checkbox" id="style-selector" name="style-selector" checked /><label
-                    for="style-selector">Show card backgrounds</label>
+                <input type="checkbox" id="allow-styles" name="allow-styles" checked /><label for="allow-styles">Show
+                    card backgrounds</label>
             </span>
             <span>
-                <input type="checkbox" id="break-lists" name="break-lists" /><label for="break-lists">Start each
-                    list on a new page</label>
+                <input type="checkbox" id="break-lists" name="break-lists" /><label for="break-lists">Start each list on
+                    a new page</label>
             </span>
             <span>
                 <input type="checkbox" id="break-cards" name="break-cards" /><label for="break-cards">Allow cards to
@@ -43,20 +45,27 @@
             <div id="list-checkboxes"></div>
             <h3>Card Details:</h3>
             <div id="detail-checkboxes">
-                <span><input type="checkbox" id="card-titles" name="card-titles" value="card-titles" checked><label
+                <span><input type="checkbox" id="card-titles" name="card-titles" value="card-titles" checked /><label
                         for="card-title">Titles</label></span>
-                <span><input type="checkbox" id="card-labels" name="card-labels" value="card-labels" checked><label
+                <span><input type="checkbox" id="card-labels" name="card-labels" value="card-labels" checked /><label
                         for="card-labels">Labels</label></span>
-                <span><input type="checkbox" id="card-descs" name="card-descs" value="card-descs" checked><label
+                <span><input type="checkbox" id="card-descs" name="card-descs" value="card-descs" checked /><label
                         for="card-descs">Descriptions</label></span>
-                <span><input type="checkbox" id="lists-only" name="lists-only" value="lists-only"><label
+                <span><input type="checkbox" id="last-activity" name="last-activity" value="last-activity"
+                        checked /><label for="last-activity">Last Activity</label></span>
+                <span><input type="checkbox" id="due-dates" name="due-dates" value="due-dates" checked /><label
+                        for="due-dates">Due Dates</label></span>
+                <span><input type="checkbox" id="show-members" name="show-members" value="show-members" checked /><label
+                        for="show-members">Members List</label></span>
+                <span><input type="checkbox" id="show-attachments" name="show-attachments" value="show-attachments"
+                        checked /><label for="show-attachments">Attachments List</label></span>
+                <span><input type="checkbox" id="lists-only" name="lists-only" value="lists-only" /><label
                         for="lists-only">Show Lists Only (hides all cards)</label></span>
             </div>
         </div>
     </section>
 
-
-    <section id="wrapper" class="styles">
+    <section id="wrapper">
         <h1 id="board-name" class="print"></h1>
         <main id="lists" class="print"></main>
     </section>

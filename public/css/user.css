@@ -1,0 +1,51 @@
+/* USER SELECTED CLASSES */
+.no-styles .card-section {
+    background: transparent !important;
+    background-image: none;
+    padding: 0;
+}
+
+.no-styles .card-desc {
+    padding: 0;
+}
+
+/* all children of main#lists are hidden unless given the print class, done by selecting the corresponding checkbox */
+#lists>* {
+    display: none;
+}
+
+#lists>.print {
+    display: block;
+}
+
+.no-titles .card-title {
+    display: none;
+}
+
+.no-labels .labels {
+    display: none;
+}
+
+.no-descs .card-desc {
+    display: none;
+}
+
+.no-last-active .last-active {
+    display: none;
+}
+
+.no-due-dates .due-date {
+    display: none;
+}
+
+.no-members .members-list {
+    display: none;
+}
+
+.no-attachments .attachments {
+    display: none;
+}
+
+.lists-only .card-section {
+    display: none;
+}

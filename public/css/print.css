@@ -1,4 +1,5 @@
 @page {
+    size: A4;
     margin: 0.25in 0;
 }
 
@@ -9,14 +10,8 @@
         display: none !important;
     }
 
-    pre,
-    blockquote {
-        border: 1px solid #999999;
-        page-break-inside: avoid;
-    }
-
-    tr {
-        page-break-inside: avoid;
+    .lists-only .list-section .list-title {
+        page-break-before: unset;
     }
 
     .list-break .list-section .list-title {
@@ -25,10 +20,6 @@
 
     .list-break .list-section:first-child .list-title {
         page-break-before: avoid;
-    }
-
-    .lists-only .list-section .list-title {
-        page-break-before: unset;
     }
 
     a[href]:after {
