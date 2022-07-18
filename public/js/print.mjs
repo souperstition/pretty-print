@@ -93,7 +93,7 @@ t.render(() => {
         const cardSection = document.createElement('section');
         cardSection.classList.add('card-section');
 
-        if (card.idUploadedBackground) {
+        if (card.idUploadedBackground !== null) {
           cardSection.setAttribute('style', `background-image: url(${card.scaled[0].url})`)
         } else {
           cardSection.classList.add(`${card.cover.color}-card`);
