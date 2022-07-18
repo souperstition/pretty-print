@@ -93,8 +93,8 @@ t.render(() => {
         const cardSection = document.createElement('section');
         cardSection.classList.add('card-section');
 
-        if (card.idUploadedBackground !== null) {
-          console.log(card);
+        if (card.cover.idUploadedBackground !== null) {
+          console.log(card.cover.sharedSourceUrl);
         } else {
           cardSection.classList.add(`${card.cover.color}-card`);
         }
