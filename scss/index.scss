@@ -30,8 +30,6 @@
 .card-section {
     @include font(400, 1rem);
     margin: 1rem;
-    padding: 1rem;
-    border-radius: 0.25rem;
 
     h1,
     h2 {
@@ -60,7 +58,7 @@
         border-radius: 0.25rem;
         color: $white;
     }
-    
+
     .red {
         background-color: $label-red;
     }
@@ -114,6 +112,11 @@
 }
 
 .styles {
+    .card-section {
+        padding: 1rem;
+        border-radius: 0.25rem;
+    }
+
     .red-card {
         @include colors($black, $red);
     }

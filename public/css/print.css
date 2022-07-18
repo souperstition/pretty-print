@@ -1,4 +1,5 @@
 @media print {
+
     /* don't show top section on the final print page */
     .hide-from-print {
         display: none !important;
@@ -15,18 +16,18 @@
     }
 
     .list-break .list-section .list-title {
-            page-break-before: always;
-        }
+        page-break-before: always;
+    }
 
-        .list-break  .list-section:first-child .list-title {
-            page-break-before: avoid;
-        }
-    
+    .list-break .list-section:first-child .list-title {
+        page-break-before: avoid;
+    }
+
 
     .lists-only .list-section .list-title {
-            page-break-before: unset;
-        }
-    
+        page-break-before: unset;
+    }
+
 
 
 
