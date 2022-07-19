@@ -4,20 +4,16 @@
 
 ![demo-gif](https://itsdani.me/images/pretty-print/demo.gif)
 
-
 # Pretty Print 🖨️✨ 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-![](https://itsdani.me/images/pretty-print/hr.png)
-
-
 
 > Sometimes it's handy to just have all your cards and their descriptions in one list. Maybe you want to print out your cards or export them to PDF.
 > 
 > With this Power-Up, you can choose which lists you want. The list, all its cards, their labels, and their descriptions will appear, fully formatted, ready to print or save.
 
+![](https://itsdani.me/images/pretty-print/hr.png)
 
 ## ⚡️ Quick Start
-![](https://itsdani.me/images/pretty-print/hr.png)
 
 ### 1. ✨ Click the *"Pretty Print"* board button.
 
@@ -31,8 +27,9 @@
 
 ![](https://itsdani.me/images/pretty-print/step3.gif)
 
-## 💡 Tips
 ![](https://itsdani.me/images/pretty-print/hr.png)
+
+## 💡 Tips
 
  You can use this Power-Up to export your board into a nicely formatted PDF document. Instead of choosing a printer, select *"Save as PDF"* in your print settings:
 
@@ -62,8 +59,9 @@ If you do want the colors to show up in print; however, make sure you double che
 
 ![](https://itsdani.me/images/pretty-print/tip4.png)
 
-## ❓ Help
 ![](https://itsdani.me/images/pretty-print/hr.png)
+
+## ❓ Help
 
 If you need assistance, feel free to get in touch:
 
