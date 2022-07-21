@@ -1,7 +1,7 @@
 /* global TrelloPowerUp */
 
-const LIGHT_ICON = 'https://itsdani.me/images/pretty-print-icon.svg';
-const DARK_ICON = 'https://itsdani.me/images/pretty-print-icon.svg';
+const LIGHT_ICON = 'https://pretty-print-board.herokuapp.com/pretty-print-icon.svg';
+const DARK_ICON = 'https://pretty-print-board.herokuapp.com/pretty-print-icon.svg';
 
 TrelloPowerUp.initialize({
   'board-buttons': (t, options) => {
