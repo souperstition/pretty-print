@@ -1,8 +1,8 @@
 *Note: This repository is the source code for a Trello Power-Up currently in the review process. Should it be accepted, instructions for how to install it will be added to this documentation.*
 
-![](https://itsdani.me/images/pretty-print/hr.png)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/hr.png?raw=true)
 
-![demo-gif](https://itsdani.me/images/pretty-print/demo.gif?v=2)
+![demo-gif](https://github.com/souperstition/pretty-print/blob/main/demo/demo.gif?raw=true)
 
 # Pretty Print 🖨️✨ 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
@@ -11,29 +11,29 @@
 > 
 > With this Power-Up, you can choose which lists you want. The list, all its cards, their labels, and their descriptions will appear, fully formatted, ready to print or save.
 
-![](https://itsdani.me/images/pretty-print/hr.png)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/hr.png?raw=true)
 
 ## ⚡️ Quick Start
 
 ### 1. ✨ Click the *"Pretty Print"* board button.
 
-![](https://itsdani.me/images/pretty-print/step1.gif)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/step1.gif?raw=true)
 
 ### 2. ⚙️ Adjust your preferences.
 
-![](https://itsdani.me/images/pretty-print/step2.gif?v=2)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/step2.gif?raw=true)
 
 ### 3. 🖨️ Print or 📝 Export!
 
-![](https://itsdani.me/images/pretty-print/step3.gif?v=2)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/step3.gif?raw=true)
 
-![](https://itsdani.me/images/pretty-print/hr.png)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/hr.png?raw=true)
 
 ## 💡 Tips
 
  You can use this Power-Up to export your board into a nicely formatted PDF document. Instead of choosing a printer, select *"Save as PDF"* in your print settings:
 
-![](https://itsdani.me/images/pretty-print/tip1.png)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/tip1.png?raw=true)
 
 📄 The default margins are set to: 
 
@@ -45,7 +45,7 @@
 
 If you wish to change this, you can do so in the print settings (in Chrome, check the *"More Settings"* option):
 
-![](https://itsdani.me/images/pretty-print/tip2.png)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/tip2.png?raw=true)
 
 If you don't like the amount of white space in your print preview, here are some things you can try:
     
@@ -57,9 +57,9 @@ You can also disable the card colors to save printer ink! Just check the box tha
 
 If you do want the colors to show up in print; however, make sure you double check your print settings and *turn on background graphics*:
 
-![](https://itsdani.me/images/pretty-print/tip4.png)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/tip4.png?raw=true)
 
-![](https://itsdani.me/images/pretty-print/hr.png)
+![](https://github.com/souperstition/pretty-print/blob/main/demo/hr.png?raw=true)
 
 ## ❓ Help
 
