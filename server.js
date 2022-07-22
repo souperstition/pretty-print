@@ -12,13 +12,13 @@ const app = express();
 app.use(compression());
 // your manifest must have appropriate CORS headers, you could also use '*'
 app.use(cors({ origin: 'https://trello.com' }));
-app.use((req, res, next) => {
-  res.setHeader(
-    "Permissions-Policy",
-    'geolocation=(self "https://pretty-print-board.herokuapp.com/"), microphone=()'
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     "Permissions-Policy",
+//     'geolocation=(self "https://pretty-print-board.herokuapp.com/"), microphone=()'
+//   );
+//   next();
+// });
 app.use(helmet());
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
