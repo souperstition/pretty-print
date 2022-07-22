@@ -8,7 +8,6 @@ const app = express();
 app.use(compression());
 app.use(cors({ origin: 'https://trello.com' }));
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
-
 app.use(helmet.contentSecurityPolicy({
   useDefaults: false,
   directives: {
@@ -30,30 +29,13 @@ app.use(helmet.originAgentCluster());
 app.use(helmet.noSniff());
 app.use(helmet.referrerPolicy());
 
-
-// app.use((req, res, next) => {
-//   res.setHeader(
-//     "Permissions-Policy",
-//     'geolocation=(self "https://trello.com/"), microphone=()'
-//   );
-//   res.setHeader(
-//     'Content-Security-Policy',
-//     "default-src 'self'; font-src *; img-src *; script-src 'self' https://*.trellocdn.com https://*.trello.com https://cdn.skypack.dev https://esm.sh https://*.fontawesome.com; style-src 'self' 'unsafe-inline' https://*.trello.com https://fonts.googleapis.com https://*.fontawesome.com; frame-src 'self'; connect-src 'self' https://*.fontawesome.com"
-//   );
-//   res.setHeader(
-//     'Strict-Transport-Security',
-//     "max-age=63072000; preload=true; includeSubDomains"
-//   );
-//   res.setHeader(
-//     'Access-Control-Allow-Origin',
-//     '*'
-//   );
-//   res.setHeader(
-//     'Orgin-Agent-Cluster',
-//     '?false'
-//   );
-//   next();
-// });
+app.use((req, res, next) => {
+  res.setHeader(
+    "Permissions-Policy",
+    'geolocation=(self "https://trello.com/"), microphone=()'
+  );
+  next();
+});
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
