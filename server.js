@@ -11,7 +11,7 @@ const app = express();
 // compress our client side content before sending it over the wire
 app.use(compression());
 // your manifest must have appropriate CORS headers, you could also use '*'
-// app.use(cors({ origin: 'https://trello.com' }));
+app.use(cors({ origin: 'https://trello.com' }));
 app.use((req, res, next) => {
   res.setHeader(
     "Permissions-Policy",
@@ -30,10 +30,6 @@ app.use(
     hsts: {
       maxAge: 63072000,
       preload: true,
-    },
-    crossOriginResourcePolicy: {
-      policy: "cross-origin",
-      origin: "https://trello.com"
     }
   })
 );
