@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   );
   res.setHeader(
     'Orgin-Agent-Cluster',
-    '?0'
+    '?false'
   );
   next();
 });
