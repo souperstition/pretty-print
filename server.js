@@ -20,12 +20,9 @@ app.use((req, res, next) => {
   next();
 });
 app.use(
-  helmet({
-
-    hsts: {
-      maxAge: 63072000,
-      preload: true,
-    }
+  helmet.hsts({
+    maxAge: 63072000,
+    preload: true,
   })
 );
 
