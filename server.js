@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 app.use(compression());
-app.use(cors({ origin: 'https://trello.com' }));
+app.use(cors({ origin: '*' }));
 app.use((req, res, next) => {
   res.setHeader(
     "Permissions-Policy",
