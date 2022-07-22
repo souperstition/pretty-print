@@ -15,11 +15,10 @@ app.use(helmet.contentSecurityPolicy({
     scriptSrc: ["'self'", "https://*.trellocdn.com", "https://*.trello.com", "https://cdn.skypack.dev https://esm.sh", "https://*.fontawesome.com"],
     imgSrc: ["*"],
     fontSrc: ["*"],
-    styleSrc: ["'self", "'unsafe-inline'", "https://*.trello.com", "https://fonts.googleapis.com", "https://*.fontawesome.com"],
+    styleSrc: ["'self'", "'unsafe-inline'", "https://*.trello.com", "https://fonts.googleapis.com", "https://*.fontawesome.com"],
     frameSrc: ["'self'"],
     connectSrc: ["'self'", "https://*.fontawesome.com"],
     objectSrc: ["'none'"],
-    upgradeInsecureRequests: [],
   },
 }));
 
