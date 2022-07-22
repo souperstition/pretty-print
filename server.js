@@ -24,7 +24,7 @@ app.use(
     useDefaults: false,
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "https://trello.com"],
+      scriptSrc: ["'self'", "https://*.trello.com"],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
       frameAncestors: ["'trello.com'"],
