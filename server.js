@@ -22,11 +22,17 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; font-src *; img-src *; script-src 'self' https://*.trellocdn.com; style-src 'self' https://*.trello.com; frame-src 'self'"
+    "default-src 'self'; font-src *; img-src *; script-src 'self' https://*.trellocdn.com https://*.trello.com; style-src 'self' https://*.trello.com; frame-src 'self'"
   );
   next();
-})
-
+});
+app.use((req, res, next) => {
+  res.setHeader(
+    'Strict-Transport-Security',
+    "max-age=63072000; preload=true; includeSubDomains"
+  );
+  next();
+});
 
 // app.use(
 //   helmet.hsts({
