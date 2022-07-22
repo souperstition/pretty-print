@@ -15,7 +15,7 @@ app.use(cors({ origin: 'https://trello.com' }));
 app.use((req, res, next) => {
   res.setHeader(
     "Permissions-Policy",
-    'geolocation=(self "https://example.com"), microphone=()'
+    'geolocation=(self "https://pretty-print-board.herokuapp.com/"), microphone=()'
   );
   next();
 });
