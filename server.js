@@ -20,6 +20,18 @@ app.use((req, res, next) => {
   next();
 });
 app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: false,
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "https://trello.com"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+      frameAncestors: ["'https://trello.com'"],
+    },
+  })
+);
+app.use(
   helmet.hsts({
     maxAge: 63072000,
     preload: true,
