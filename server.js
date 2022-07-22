@@ -22,7 +22,11 @@ app.use((req, res, next) => {
   res.setHeader(
     'Access-Control-Allow-Origin',
     '*'
-  )
+  );
+  res.setHeader(
+    'Orgin-Agent-Cluster',
+    '?1'
+  );
   next();
 });
 app.use(express.static('public'));
