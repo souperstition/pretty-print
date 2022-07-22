@@ -19,7 +19,14 @@ app.use(cors({ origin: 'https://trello.com' }));
 //   );
 //   next();
 // });
-// app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "script-src": ["'self'", "https://trello.com"],
+      "style-src": null,
+    },
+  })
+);
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
