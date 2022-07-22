@@ -9,7 +9,7 @@ app.use(cors({ origin: '*' }));
 app.use((req, res, next) => {
   res.setHeader(
     "Permissions-Policy",
-    'geolocation=(self "https://pretty-print-board.herokuapp.com/"), microphone=()'
+    'geolocation=(self "https://trello.com/"), microphone=()'
   );
   res.setHeader(
     'Content-Security-Policy-Report-Only',
