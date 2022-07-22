@@ -19,12 +19,12 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use(
-  helmet.hsts({
-    maxAge: 63072000,
-    preload: true,
-  })
-);
+// app.use(
+//   helmet.hsts({
+//     maxAge: 63072000,
+//     preload: true,
+//   })
+// );
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
