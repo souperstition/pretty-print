@@ -25,12 +25,13 @@ app.use(
       useDefaults: false,
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://*.trello.com"],
+        scriptSrc: ["'self'"],
         objectSrc: ["'none'"],
         upgradeInsecureRequests: [],
-        frameAncestors: ["'self'", "https://trello.com"],
+        frameAncestors: ['https://*.trello.com'],
       },
     },
+    frameguard: false,
     hsts: {
       maxAge: 63072000,
       preload: true,
