@@ -21,16 +21,7 @@ app.use((req, res, next) => {
 });
 app.use(
   helmet({
-    contentSecurityPolicy: {
-      useDefaults: false,
-      directives: {
-        defaultSrc: ['self'],
-        imgSrc: ['*'],
-        mediaSrc: ['*'],
-        scriptSrc: ['https://*.trellocdn.com', 'https://*.trello.com'],
-        frameAncestors: ['*'],
-      },
-    },
+
     hsts: {
       maxAge: 63072000,
       preload: true,
