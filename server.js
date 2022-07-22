@@ -12,7 +12,7 @@ app.use((req, res, next) => {
     'geolocation=(self "https://trello.com/"), microphone=()'
   );
   res.setHeader(
-    'Content-Security-Policy-Report-Only',
+    'Content-Security-Policy',
     "default-src 'self'; font-src *; img-src *; script-src 'self' https://*.trellocdn.com https://*.trello.com https://cdn.skypack.dev https://esm.sh https://*.fontawesome.com; style-src 'self' 'unsafe-inline' https://*.trello.com https://fonts.googleapis.com https://*.fontawesome.com; frame-src 'self'; connect-src 'self' https://*.fontawesome.com"
   );
   res.setHeader(
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   );
   res.setHeader(
     'Orgin-Agent-Cluster',
-    '?1'
+    '?0'
   );
   next();
 });
