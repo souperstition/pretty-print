@@ -17,22 +17,17 @@ app.use((req, res, next) => {
     "Permissions-Policy",
     'geolocation=(self "https://pretty-print-board.herokuapp.com/"), microphone=()'
   );
-  next();
-});
-app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
     "default-src 'self'; font-src *; img-src *; script-src 'self' https://*.trellocdn.com https://*.trello.com https://cdn.skypack.dev https://esm.sh https://*.fontawesome.com; style-src 'self' 'unsafe-inline' https://*.trello.com https://fonts.googleapis.com https://*.fontawesome.com; frame-src 'self'; connect-src 'self' https://*.fontawesome.com"
   );
-  next();
-});
-app.use((req, res, next) => {
   res.setHeader(
     'Strict-Transport-Security',
     "max-age=63072000; preload=true; includeSubDomains"
   );
   next();
 });
+
 
 // app.use(
 //   helmet.hsts({
