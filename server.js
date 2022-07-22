@@ -20,11 +20,9 @@ app.use(cors({ origin: 'https://trello.com' }));
 //   next();
 // });
 app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      "script-src": ["'self'", "https://trello.com"],
-      "style-src": null,
-    },
+  helmet.hsts({
+    maxAge: 63072000,
+    preload: true,
   })
 );
 // http://expressjs.com/en/starter/static-files.html
