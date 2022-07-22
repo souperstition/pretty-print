@@ -19,6 +19,10 @@ app.use((req, res, next) => {
     'Strict-Transport-Security',
     "max-age=63072000; preload=true; includeSubDomains"
   );
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    '*'
+  )
   next();
 });
 app.use(express.static('public'));
