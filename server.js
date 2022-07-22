@@ -27,7 +27,7 @@ app.use(
       scriptSrc: ["'self'", "https://*.trello.com"],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
-      frameAncestors: ["'trello.com'"],
+      frameAncestors: ["'self'"],
     },
   })
 );
