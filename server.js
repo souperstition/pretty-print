@@ -12,13 +12,22 @@ const app = express();
 app.use(compression());
 // your manifest must have appropriate CORS headers, you could also use '*'
 app.use(cors({ origin: 'https://trello.com' }));
-// app.use((req, res, next) => {
-//   res.setHeader(
-//     "Permissions-Policy",
-//     'geolocation=(self "https://pretty-print-board.herokuapp.com/"), microphone=()'
-//   );
-//   next();
-// });
+app.use((req, res, next) => {
+  res.setHeader(
+    "Permissions-Policy",
+    'geolocation=(self "https://pretty-print-board.herokuapp.com/"), microphone=()'
+  );
+  next();
+});
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; font-src '*'; img-src '*'; script-src 'self' 'https://*.trellocdn.com'; style-src 'self' 'https://*.trello.com'; frame-src 'self'"
+  );
+  next();
+})
+
+
 // app.use(
 //   helmet.hsts({
 //     maxAge: 63072000,
