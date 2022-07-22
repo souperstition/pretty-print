@@ -27,11 +27,9 @@ app.use(helmet.hsts({
   preload: true,
 }));
 app.use(helmet.originAgentCluster());
-app.use(
-  helmet.frameguard({
-    action: "sameorigin",
-  })
-);
+app.use(helmet.noSniff());
+app.use(helmet.referrerPolicy());
+
 
 // app.use((req, res, next) => {
 //   res.setHeader(
