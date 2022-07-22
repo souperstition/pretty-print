@@ -25,7 +25,6 @@ app.use(
     preload: true,
   })
 );
-
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
