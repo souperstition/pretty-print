@@ -13,6 +13,7 @@
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.18.1",
+    "helmet": "^5.1.0",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
@@ -30,8 +31,5 @@
     "node",
     "trello",
     "express"
-  ],
-  "devDependencies": {
-    "nodemon": "^2.0.19"
-  }
+  ]
 }

@@ -4,6 +4,7 @@
 const compression = require('compression');
 const cors = require('cors');
 const express = require('express');
+const helmet = require('helmet')
 
 const app = express();
 
@@ -11,6 +12,7 @@ const app = express();
 app.use(compression());
 // your manifest must have appropriate CORS headers, you could also use '*'
 app.use(cors({ origin: 'https://trello.com' }));
+app.use(helmet());
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
