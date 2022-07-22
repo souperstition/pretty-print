@@ -4,7 +4,6 @@
 const compression = require('compression');
 const cors = require('cors');
 const express = require('express');
-const helmet = require('helmet')
 
 const app = express();
 
@@ -12,29 +11,7 @@ const app = express();
 app.use(compression());
 // your manifest must have appropriate CORS headers, you could also use '*'
 app.use(cors({ origin: 'https://trello.com' }));
-app.use((req, res, next) => {
-  res.setHeader(
-    "Permissions-Policy",
-    'geolocation=(self "https://pretty-print-board.herokuapp.com/"), microphone=()'
-  );
-  res.setHeader(
-    'Content-Security-Policy',
-    "default-src 'self'; font-src *; img-src *; script-src 'self' https://*.trellocdn.com https://*.trello.com https://cdn.skypack.dev https://esm.sh https://*.fontawesome.com; style-src 'self' 'unsafe-inline' https://*.trello.com https://fonts.googleapis.com https://*.fontawesome.com; frame-src 'self'; connect-src 'self' https://*.fontawesome.com"
-  );
-  res.setHeader(
-    'Strict-Transport-Security',
-    "max-age=63072000; preload=true; includeSubDomains"
-  );
-  next();
-});
 
-
-// app.use(
-//   helmet.hsts({
-//     maxAge: 63072000,
-//     preload: true,
-//   })
-// );
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
