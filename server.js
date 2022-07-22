@@ -24,6 +24,10 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: false,
       directives: {
+        defaultSrc: ['self'],
+        imgSrc: ['*'],
+        mediaSrc: ['*'],
+        scriptSrc: ['https://*.trellocdn.com', 'https://*.trello.com'],
         frameAncestors: ['*'],
       },
     },
