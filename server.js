@@ -7,6 +7,7 @@ const app = express();
 
 app.use(compression());
 app.use(cors({ origin: '*' }));
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 app.use(helmet.contentSecurityPolicy({
   useDefaults: false,
@@ -24,7 +25,8 @@ app.use(helmet.contentSecurityPolicy({
 app.use(helmet.hsts({
   maxAge: 63072000,
   preload: true,
-}))
+}));
+app.use(helmet.originAgentCluster());
 
 
 // app.use((req, res, next) => {
