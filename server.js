@@ -21,6 +21,10 @@ app.use(helmet.contentSecurityPolicy({
     objectSrc: ["'none'"],
   },
 }));
+app.use(helmet.hsts({
+  maxAge: 63072000,
+  preload: true,
+}))
 
 
 // app.use((req, res, next) => {
