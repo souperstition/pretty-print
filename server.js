@@ -9,7 +9,7 @@ const app = express();
 
 // compress our client side content before sending it over the wire
 app.use(compression());
-// your manifest must have appropriate CORS headers, you could also use '*'
+
 app.use(cors({ origin: 'https://trello.com' }));
 
 // http://expressjs.com/en/starter/static-files.html
