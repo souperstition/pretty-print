@@ -7,7 +7,6 @@ const app = express();
 
 app.use(compression());
 app.use(cors({ origin: 'https://trello.com' }));
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(helmet.contentSecurityPolicy({
   useDefaults: false,
   directives: {
