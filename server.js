@@ -31,7 +31,10 @@ app.use(
       maxAge: 63072000,
       preload: true,
     },
-    crossOriginResourcePolicy: { policy: "cross-origin" }
+    crossOriginResourcePolicy: {
+      policy: "cross-origin",
+      origin: "https://trello.com"
+    }
   })
 );
 
