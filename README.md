@@ -1,4 +1,4 @@
-*Note: This repository is the source code for a Trello Power-Up currently in the review process. Should it be accepted, instructions for how to install it will be added to this documentation.*
+[Add this Power-Up to your Trello Board](https://trello.com/power-ups/62d427754a68445de8eb67c8)
 
 ![](https://github.com/souperstition/pretty-print/blob/main/demo/hr.png?raw=true)
 

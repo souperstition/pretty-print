@@ -1,0 +1,17 @@
+main {
+    margin: 3rem;
+}
+
+h1 {
+    border-bottom: 1px solid #eeeeee;
+}
+
+h4 {
+    font-weight: normal;
+    font-size: 1rem;
+    color: #a0a0a0;
+}
+
+h2 {
+    margin-top: 2rem;
+}

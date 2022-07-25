@@ -213,6 +213,7 @@ h2.card-title {
     background-color: #61BD4F;
     padding: 0.25rem;
     border-radius: 0.25rem;
+    margin-left: 0.5rem;
 }
 
 .due-overdue {
@@ -223,6 +224,7 @@ h2.card-title {
     background-color: #EB5A46;
     padding: 0.25rem;
     border-radius: 0.25rem;
+    margin-left: 0.5rem;
 }
 
 .members-list {
