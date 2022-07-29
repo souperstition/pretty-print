@@ -99,3 +99,10 @@
 input[type=checkbox] {
     margin: 0;
 }
+
+button#all-none-lists,
+button#all-none-details {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}

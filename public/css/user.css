@@ -18,19 +18,20 @@
     display: block;
 }
 
-.no-titles .card-title {
+.no-card-titles .card-title {
+    visibility: hidden;
+    height: 0.5rem;
+}
+
+.no-card-labels .labels {
     display: none;
 }
 
-.no-labels .labels {
+.no-card-descs .card-desc {
     display: none;
 }
 
-.no-descs .card-desc {
-    display: none;
-}
-
-.no-last-active .last-active {
+.no-last-activity .last-active {
     display: none;
 }
 

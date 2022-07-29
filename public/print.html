@@ -26,7 +26,8 @@
                     a new page</label>
             </span>
             <span>
-                <input type="checkbox" id="break-cards" name="break-cards" /><label for="break-cards">Allow cards to
+                <input type="checkbox" id="break-cards" name="break-cards" checked /><label for="break-cards">Allow
+                    cards to
                     break between pages</label>
             </span>
             <span>
@@ -41,24 +42,24 @@
         </div>
 
         <div id="print-options">
-            <h3>Lists:</h3>
+            <h3>Lists: <button id="all-none-lists">(select none)</button></h3>
             <div id="list-checkboxes"></div>
-            <h3>Card Details:</h3>
+            <h3>Card Details: <button id="all-none-details">(select none)</button></h3>
             <div id="detail-checkboxes">
-                <span><input type="checkbox" id="card-titles" name="card-titles" value="card-titles" checked /><label
-                        for="card-title">Titles</label></span>
-                <span><input type="checkbox" id="card-labels" name="card-labels" value="card-labels" checked /><label
-                        for="card-labels">Labels</label></span>
-                <span><input type="checkbox" id="card-descs" name="card-descs" value="card-descs" checked /><label
-                        for="card-descs">Descriptions</label></span>
-                <span><input type="checkbox" id="last-activity" name="last-activity" value="last-activity"
-                        checked /><label for="last-activity">Last Activity</label></span>
-                <span><input type="checkbox" id="due-dates" name="due-dates" value="due-dates" checked /><label
-                        for="due-dates">Due Dates</label></span>
-                <span><input type="checkbox" id="show-members" name="show-members" value="show-members" checked /><label
-                        for="show-members">Members List</label></span>
-                <span><input type="checkbox" id="show-attachments" name="show-attachments" value="show-attachments"
-                        checked /><label for="show-attachments">Attachments List</label></span>
+                <span><input type="checkbox" id="card-titles" class="detail-select" name="card-titles"
+                        value="card-titles" checked /><label for="card-title">Titles</label></span>
+                <span><input type="checkbox" id="card-labels" class="detail-select" name="card-labels"
+                        value="card-labels" checked /><label for="card-labels">Labels</label></span>
+                <span><input type="checkbox" id="card-descs" class="detail-select" name="card-descs" value="card-descs"
+                        checked /><label for="card-descs">Descriptions</label></span>
+                <span><input type="checkbox" id="last-activity" class="detail-select" name="last-activity"
+                        value="last-activity" checked /><label for="last-activity">Last Activity</label></span>
+                <span><input type="checkbox" id="due-dates" class="detail-select" name="due-dates" value="due-dates"
+                        checked /><label for="due-dates">Due Dates</label></span>
+                <span><input type="checkbox" id="members" class="detail-select" name="show-members" value="show-members"
+                        checked /><label for="show-members">Members List</label></span>
+                <span><input type="checkbox" id="attachments" class="detail-select" name="show-attachments"
+                        value="show-attachments" checked /><label for="show-attachments">Attachments List</label></span>
                 <span><input type="checkbox" id="lists-only" name="lists-only" value="lists-only" /><label
                         for="lists-only">Show Lists Only (hides all cards)</label></span>
             </div>
@@ -67,7 +68,7 @@
 
     <section id="wrapper">
         <h1 id="board-name" class="print"></h1>
-        <main id="lists" class="print"></main>
+        <main id="lists" class="print card-break"></main>
     </section>
 
     <script type="module" src="./js/print.mjs"></script>

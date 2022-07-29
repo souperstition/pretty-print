@@ -20,6 +20,9 @@ printButton.addEventListener('click', (e) => {
 });
 const listBoxes = document.getElementById('list-checkboxes');
 
+const allListsBtn = document.getElementById('all-none-lists');
+const allListBoxes = document.getElementsByClassName('list-select');
+
 // REUSABLE FUNCTION TO TOGGLE CLASSNAMES, FOR HIDING/SHOWING SELECTED ELEMENTS
 const toggleClassName = (selector, element, className) => {
   selector.addEventListener('change', () => {
@@ -37,8 +40,8 @@ const cardLabels = document.getElementById('card-labels');
 const cardDescs = document.getElementById('card-descs');
 const lastActivity = document.getElementById('last-activity');
 const dueDates = document.getElementById('due-dates');
-const showMembers = document.getElementById('show-members');
-const showAttachments = document.getElementById('show-attachments');
+const showMembers = document.getElementById('members');
+const showAttachments = document.getElementById('attachments');
 const listsOnly = document.getElementById('lists-only');
 
 // FUNCTION CALL TO TOGGLE USER OPTIONS
@@ -46,14 +49,18 @@ toggleClassName(allowStyles, wrapper, 'no-styles');
 toggleClassName(breakLists, mainSection, 'list-break');
 toggleClassName(breakCards, mainSection, 'card-break');
 toggleClassName(filterImgs, mainSection, 'img-filter');
-toggleClassName(cardTitles, mainSection, 'no-titles');
-toggleClassName(cardLabels, mainSection, 'no-labels');
-toggleClassName(cardDescs, mainSection, 'no-descs');
-toggleClassName(lastActivity, mainSection, 'no-last-active');
+// DETAILS
+toggleClassName(cardTitles, mainSection, 'no-card-titles');
+toggleClassName(cardLabels, mainSection, 'no-card-labels');
+toggleClassName(cardDescs, mainSection, 'no-card-descs');
+toggleClassName(lastActivity, mainSection, 'no-last-activity');
 toggleClassName(dueDates, mainSection, 'no-due-dates');
 toggleClassName(showMembers, mainSection, 'no-members');
 toggleClassName(showAttachments, mainSection, 'no-attachments');
 toggleClassName(listsOnly, mainSection, 'lists-only');
+
+const allDetailsBtn = document.getElementById('all-none-details');
+const allDetailBoxes = document.getElementsByClassName('detail-select');
 
 t.render(() => {
   return Promise.all([
@@ -69,11 +76,12 @@ t.render(() => {
         // create a checkbox for each list and add the checkboxes to the top of the page
         const listSelect = document.createElement('span');
         const listCheckBox = document.createElement('input');
+        listCheckBox.classList.add('list-select');
         listCheckBox.setAttribute('type', 'checkbox');
         listCheckBox.setAttribute('id', list.name);
         listCheckBox.setAttribute('name', list.name);
         listCheckBox.setAttribute('value', list.name);
-        listCheckBox.setAttribute('checked', true);
+        listCheckBox.checked = true;
         const checkLabel = document.createElement('label');
         checkLabel.setAttribute('for', list.name);
         checkLabel.innerText = list.name;
@@ -207,6 +215,33 @@ t.render(() => {
           }
           listSection.appendChild(cardSection);
         })
+      })
+
+      allListsBtn.addEventListener('click', () => {
+        for (let box of allListBoxes) {
+          const matchingList = document.getElementById(`${box.id}-title`);
+          if (allListsBtn.innerText === '(select all)') {
+            matchingList.classList.add('print');
+            box.checked = true;
+          } else {
+            matchingList.classList.remove('print');
+            box.checked = false;
+          }
+        }
+        allListsBtn.innerText = allListsBtn.innerText === '(select all)' ? '(select none)' : '(select all)'
+      })
+
+      allDetailsBtn.addEventListener('click', () => {
+        for (let box of allDetailBoxes) {
+          if (allDetailsBtn.innerText === '(select all)') {
+            mainSection.classList.remove(`no-${box.id}`);
+            box.checked = true;
+          } else {
+            mainSection.classList.add(`no-${box.id}`)
+            box.checked = false;
+          }
+        }
+        allDetailsBtn.innerText = allDetailsBtn.innerText === '(select all)' ? '(select none)' : '(select all)'
       })
     })
 
