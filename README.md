@@ -1,3 +1,5 @@
+![add power-up](https://github.com/souperstition/pretty-print/blob/main/public/demo/image.png?raw=true)
+
 [Add this Power-Up to your Trello Board](https://trello.com/power-ups/62d427754a68445de8eb67c8)
 
 ![demo-gif](https://github.com/souperstition/pretty-print/blob/main/public/demo/demo.gif?raw=true)
