@@ -96,6 +96,8 @@ t.render(() => {
             // LIST CONTAINER
             const listSection = document.createElement('section');
             const listName = DOMPurify.sanitize(list.name);
+            console.log(listName);
+            console.log(list.name);
             listSection.classList.add('list-section');
             listSection.classList.add('print');
             listSection.setAttribute('id', `${list.name}-title`);
