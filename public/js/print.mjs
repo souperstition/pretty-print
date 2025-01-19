@@ -78,34 +78,32 @@ t.render(() => {
         lists.forEach((list) => {
             // CHECKBOXES
             // create a checkbox for each list and add the checkboxes to the top of the page
+            const listName = DOMPurify.sanitize(list.name);
             const listSelect = document.createElement('span');
             const listCheckBox = document.createElement('input');
             listCheckBox.classList.add('list-select');
             listCheckBox.setAttribute('type', 'checkbox');
-            listCheckBox.setAttribute('id', list.name);
-            listCheckBox.setAttribute('name', list.name);
-            listCheckBox.setAttribute('value', list.name);
+            listCheckBox.setAttribute('id', listName);
+            listCheckBox.setAttribute('name', listName);
+            listCheckBox.setAttribute('value', listName);
             listCheckBox.checked = true;
             const checkLabel = document.createElement('label');
-            checkLabel.setAttribute('for', list.name);
-            checkLabel.innerText = list.name;
+            checkLabel.setAttribute('for', listName);
+            checkLabel.innerText = listName;
             listSelect.appendChild(listCheckBox);
             listSelect.appendChild(checkLabel);
             listBoxes.appendChild(listSelect);
 
             // LIST CONTAINER
             const listSection = document.createElement('section');
-            const listName = DOMPurify.sanitize(list.name);
-            console.log(listName);
-            console.log(list.name);
             listSection.classList.add('list-section');
             listSection.classList.add('print');
-            listSection.setAttribute('id', `${list.name}-title`);
+            listSection.setAttribute('id', `${listName}-title`);
             mainSection.appendChild(listSection);
             listSection.innerHTML += `<h2 class="list-title">${listName}</h2>`;
 
             // call function to toggle list on/off
-            const listDiv = document.getElementById(`${list.name}-title`);
+            const listDiv = document.getElementById(`${listName}-title`);
             toggleClassName(listCheckBox, listDiv, 'print');
 
             // CARD CONTAINER
