@@ -1,6 +1,6 @@
 /* global TrelloPowerUp */
 
-import { unified } from 'unified';
+import { unified } from 'https://esm.sh/unified@10?bundle';
 import remarkParse from 'remark-parse/lib';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
