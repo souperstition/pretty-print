@@ -82,10 +82,8 @@ t.render(() => {
         )
     ])
         .spread((board, lists, cards) => {
-            title.innerText = board.name; // add board name to the top of the page
-            cards.forEach((card) => {
-                console.log(card);
-            });
+            const boardName = DOMPurify.sanitize(board.name);
+            title.innerText = boardName; // add board name to the top of the page
 
             // iterate through each list
             lists.forEach((list) => {
