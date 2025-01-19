@@ -1,11 +1,11 @@
 /* global TrelloPowerUp */
 
-import { unified } from 'https://esm.sh/unified@10?bundle';
-import remarkParse from 'remark-parse';
-import remarkGfm from 'remark-gfm';
-import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
-import DOMPurify from 'dompurify';
+import {unified} from 'https://esm.sh/unified@11?bundle';
+import remarkParse from 'https://esm.sh/remark-parse@11?bundle';
+import remarkGfm from 'https://esm.sh/remark-gfm@4?bundle';
+import remarkRehype from 'https://esm.sh/remark-rehype@11?bundle';
+import rehypeStringify from 'https://esm.sh/rehype-stringify@10?bundle';
+import DOMPurify from 'https://esm.sh/dompurify@3?bundle';
 
 const Promise = TrelloPowerUp.Promise;
 const t = TrelloPowerUp.iframe();
