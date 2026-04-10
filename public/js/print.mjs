@@ -77,24 +77,37 @@ t.render(() => {
             const cardMap = new Map(cards.map((c) => [c.id, c]));
 
             // The Power-Up iframe API sometimes returns null for cover even when a cover
-            // is set. Silently supplement with REST API cover data if the user is authorized.
+            // is set. Supplement with REST API cover data; prompt authorization if needed.
+            const authNotice = document.getElementById('auth-notice');
+            const authButton = document.getElementById('auth-button');
+
+            const fetchCoversFromApi = (token) =>
+                fetch(
+                    `https://api.trello.com/1/boards/${board.id}/cards?fields=id,cover&key=${TRELLO_APP_KEY}&token=${token}`
+                )
+                    .then((r) => r.json())
+                    .then((restCards) => {
+                        restCards.forEach((rc) => {
+                            const card = cardMap.get(rc.id);
+                            if (card) card.cover = rc.cover;
+                        });
+                    });
+
             const coverFetch = t.getRestApi()
                 .isAuthorized()
                 .then((isAuthorized) => {
-                    if (!isAuthorized) return;
+                    if (!isAuthorized) {
+                        authNotice.style.display = '';
+                        authButton.onclick = () =>
+                            t.getRestApi()
+                                .authorize({ scope: 'read', expiration: 'never' })
+                                .then(() => t.render());
+                        return;
+                    }
+                    authNotice.style.display = 'none';
                     return t.getRestApi()
                         .getToken()
-                        .then((token) =>
-                            fetch(
-                                `https://api.trello.com/1/boards/${board.id}/cards?fields=id,cover&key=${TRELLO_APP_KEY}&token=${token}`
-                            ).then((r) => r.json())
-                        )
-                        .then((restCards) => {
-                            restCards.forEach((rc) => {
-                                const card = cardMap.get(rc.id);
-                                if (card) card.cover = rc.cover;
-                            });
-                        });
+                        .then((token) => fetchCoversFromApi(token));
                 })
                 .catch(() => {}); // silently ignore if REST API is unavailable
 
