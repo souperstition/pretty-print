@@ -1,6 +1,6 @@
 {
   "name": "pretty-print",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Export and print your board with support for Markdown formatting.",
   "main": "server.js",
   "scripts": {
