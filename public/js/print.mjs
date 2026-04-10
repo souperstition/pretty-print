@@ -94,13 +94,16 @@ t.render(() => {
                         const card = cardMap.get(rc.id);
                         if (card) card.cover = rc.cover;
                     });
-                    // Group checklists by card and overwrite whatever t.cards('all') returned
+                    // Group checklists by card, then assign all at once to overwrite
+                    // whatever t.cards('all') returned (prevents duplicates)
+                    const checklistsByCard = new Map();
                     checklists.forEach((cl) => {
-                        const card = cardMap.get(cl.idCard);
-                        if (card) {
-                            if (!card.checklists) card.checklists = [];
-                            card.checklists.push(cl);
-                        }
+                        if (!checklistsByCard.has(cl.idCard)) checklistsByCard.set(cl.idCard, []);
+                        checklistsByCard.get(cl.idCard).push(cl);
+                    });
+                    checklistsByCard.forEach((cls, cardId) => {
+                        const card = cardMap.get(cardId);
+                        if (card) card.checklists = cls;
                     });
                 });
 
