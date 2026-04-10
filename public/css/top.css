@@ -1,4 +1,30 @@
 /* TOP SECTION STYLING */
+#auth-notice {
+    background-color: #0079bf;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#auth-notice p {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.875rem;
+}
+
+#auth-button {
+    background-color: #ffffff;
+    color: #0079bf;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
 #formatting-options {
     margin-top: 0.5rem;
     display: flex;
