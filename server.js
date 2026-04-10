@@ -21,7 +21,7 @@ app.use(
                 'https://*.esm.sh',
                 'https://*.fontawesome.com'
             ],
-            connectSrc: ["'self'", 'https://*.fontawesome.com', 'https://esm.sh', 'https://*.esm.sh'],
+            connectSrc: ["'self'", 'https://*.fontawesome.com', 'https://esm.sh', 'https://*.esm.sh', 'https://api.trello.com'],
             imgSrc: ['*'],
             fontSrc: ['*'],
             styleSrc: [
