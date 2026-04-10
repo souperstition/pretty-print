@@ -85,6 +85,8 @@ t.render(() => {
             const boardName = DOMPurify.sanitize(board.name);
             title.innerText = boardName; // add board name to the top of the page
 
+            const cardMap = new Map(cards.map((c) => [c.id, c]));
+
             // iterate through each list
             lists.forEach((list) => {
                 // CHECKBOXES
@@ -118,7 +120,9 @@ t.render(() => {
                 toggleClassName(listCheckBox, listDiv, 'print');
 
                 // CARD CONTAINER
-                list.cards.forEach(async (card) => {
+                list.cards.forEach(async (listCard) => {
+                    const card = cardMap.get(listCard.id);
+                    if (!card) return;
                     const cardName = DOMPurify.sanitize(card.name);
                     const cardSection = document.createElement('section');
                     cardSection.classList.add('card-section');
