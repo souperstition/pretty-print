@@ -9,7 +9,7 @@ import DOMPurify from 'https://esm.sh/dompurify@3?bundle';
 
 const Promise = TrelloPowerUp.Promise;
 const TRELLO_APP_KEY = '5ad5278d9390d3a20091a3c88a662dee';
-const t = TrelloPowerUp.iframe({ appKey: TRELLO_APP_KEY });
+const t = TrelloPowerUp.iframe({ appKey: TRELLO_APP_KEY, appName: 'Pretty Print' });
 
 // TARGET CONTAINERS AND ELEMENTS ALREADY ADDED TO HTML
 const title = document.getElementById('board-name');
