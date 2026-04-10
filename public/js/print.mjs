@@ -129,9 +129,11 @@ t.render(() => {
 
                     cardSection.appendChild(cardTitle);
 
+                    await Promise.resolve();
+
                     // CARD BACKGROUND
                     // if the card cover has a background image, use it; otherwise give the color to its class list
-                    if (card.cover?.idUploadedBackground !== null) {
+                    if (card.cover && card.cover.idUploadedBackground !== null) {
                         if (card.cover.brightness === 'dark') {
                             cardTitle.classList.add('dark-image');
                         } else {
