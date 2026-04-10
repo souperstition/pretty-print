@@ -145,8 +145,8 @@ t.render(() => {
                             'style',
                             `background-image: url(${card.cover.sharedSourceUrl}); background-size: cover; background-repeat: no-repeat;`
                         );
-                    } else if (card.cover?.color) {
-                        cardSection.classList.add(`${card.cover.color}-card`);
+                    } else {
+                        cardSection.classList.add(`${card.cover?.color ?? 'null'}-card`);
                     }
 
                     // CARD LABELS
