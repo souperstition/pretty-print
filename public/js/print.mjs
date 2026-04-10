@@ -101,7 +101,7 @@ t.render(() => {
                         authButton.onclick = () =>
                             t.getRestApi()
                                 .authorize({ scope: 'read', expiration: 'never' })
-                                .then(() => t.render());
+                                .then(() => location.reload());
                         return;
                     }
                     authNotice.style.display = 'none';
