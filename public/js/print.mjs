@@ -8,7 +8,8 @@ import rehypeStringify from 'https://esm.sh/rehype-stringify@10?bundle';
 import DOMPurify from 'https://esm.sh/dompurify@3?bundle';
 
 const Promise = TrelloPowerUp.Promise;
-const t = TrelloPowerUp.iframe();
+const TRELLO_APP_KEY = '5ad5278d9390d3a20091a3c88a662dee';
+const t = TrelloPowerUp.iframe({ appKey: TRELLO_APP_KEY });
 
 // TARGET CONTAINERS AND ELEMENTS ALREADY ADDED TO HTML
 const title = document.getElementById('board-name');
@@ -65,27 +66,39 @@ const allDetailBoxes = document.getElementsByClassName('detail-select');
 
 t.render(() => {
     return Promise.all([
-        t.board('name'), // board name
+        t.board('name', 'id'), // board name + id
         t.lists('name', 'id', 'cards'), // get lists
-        t.cards(
-            'name',
-            'id',
-            'labels',
-            'desc',
-            'due',
-            'dueComplete',
-            'dateLastActivity',
-            'members',
-            'attachments',
-            'cover',
-            'checklists'
-        )
+        t.cards('all')
     ])
         .spread((board, lists, cards) => {
             const boardName = DOMPurify.sanitize(board.name);
             title.innerText = boardName; // add board name to the top of the page
 
             const cardMap = new Map(cards.map((c) => [c.id, c]));
+
+            // The Power-Up iframe API sometimes returns null for cover even when a cover
+            // is set. Silently supplement with REST API cover data if the user is authorized.
+            const coverFetch = t.getRestApi()
+                .isAuthorized()
+                .then((isAuthorized) => {
+                    if (!isAuthorized) return;
+                    return t.getRestApi()
+                        .getToken()
+                        .then((token) =>
+                            fetch(
+                                `https://api.trello.com/1/boards/${board.id}/cards?fields=id,cover&key=${TRELLO_APP_KEY}&token=${token}`
+                            ).then((r) => r.json())
+                        )
+                        .then((restCards) => {
+                            restCards.forEach((rc) => {
+                                const card = cardMap.get(rc.id);
+                                if (card) card.cover = rc.cover;
+                            });
+                        });
+                })
+                .catch(() => {}); // silently ignore if REST API is unavailable
+
+            return coverFetch.then(() => {
 
             // iterate through each list
             lists.forEach((list) => {
@@ -274,6 +287,8 @@ t.render(() => {
                 }
                 allDetailsBtn.innerText = allDetailsBtn.innerText === '(select all)' ? '(select none)' : '(select all)';
             });
+
+            }); // end coverFetch.then
         })
         .catch((err) => {
             console.error('Error fetching data:', err);
