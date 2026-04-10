@@ -299,3 +299,50 @@ h2.bright-image {
 .attachments ul {
     margin: 0;
 }
+
+.checklists {
+    margin: 0.5rem 1rem;
+}
+
+.checklist {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.checklist h4 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #000000;
+    margin: 0 0 0.5rem;
+    padding-bottom: 0.25rem;
+}
+
+.checklist-progress {
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #666666;
+}
+
+.checklist ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.checklist li {
+    padding: 0.2rem 0;
+    font-size: 0.9rem;
+}
+
+.checklist li.complete {
+    color: #666666;
+    text-decoration: line-through;
+}
+
+.checklist li.incomplete {
+    color: #000000;
+}

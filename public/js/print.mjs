@@ -44,6 +44,7 @@ const lastActivity = document.getElementById('last-activity');
 const dueDates = document.getElementById('due-dates');
 const showMembers = document.getElementById('members');
 const showAttachments = document.getElementById('attachments');
+const showChecklists = document.getElementById('checklists');
 const listsOnly = document.getElementById('lists-only');
 
 // FUNCTION CALL TO TOGGLE USER OPTIONS
@@ -59,6 +60,7 @@ toggleClassName(lastActivity, mainSection, 'no-last-activity');
 toggleClassName(dueDates, mainSection, 'no-due-dates');
 toggleClassName(showMembers, mainSection, 'no-members');
 toggleClassName(showAttachments, mainSection, 'no-attachments');
+toggleClassName(showChecklists, mainSection, 'no-checklists');
 toggleClassName(listsOnly, mainSection, 'lists-only');
 
 const allDetailsBtn = document.getElementById('all-none-details');
@@ -81,17 +83,26 @@ t.render(() => {
             const authNotice = document.getElementById('auth-notice');
             const authButton = document.getElementById('auth-button');
 
-            const fetchCoversFromApi = (token) =>
-                fetch(
-                    `https://api.trello.com/1/boards/${board.id}/cards?fields=id,cover&key=${TRELLO_APP_KEY}&token=${token}`
-                )
-                    .then((r) => r.json())
-                    .then((restCards) => {
-                        restCards.forEach((rc) => {
-                            const card = cardMap.get(rc.id);
-                            if (card) card.cover = rc.cover;
-                        });
+            const fetchCardData = (token) =>
+                Promise.all([
+                    fetch(`https://api.trello.com/1/boards/${board.id}/cards?fields=id,cover&key=${TRELLO_APP_KEY}&token=${token}`)
+                        .then((r) => r.json()),
+                    fetch(`https://api.trello.com/1/boards/${board.id}/checklists?checkItem_fields=name,state,pos&key=${TRELLO_APP_KEY}&token=${token}`)
+                        .then((r) => r.json())
+                ]).then(([restCards, checklists]) => {
+                    restCards.forEach((rc) => {
+                        const card = cardMap.get(rc.id);
+                        if (card) card.cover = rc.cover;
                     });
+                    // Group checklists by card and overwrite whatever t.cards('all') returned
+                    checklists.forEach((cl) => {
+                        const card = cardMap.get(cl.idCard);
+                        if (card) {
+                            if (!card.checklists) card.checklists = [];
+                            card.checklists.push(cl);
+                        }
+                    });
+                });
 
             const coverFetch = t.getRestApi()
                 .isAuthorized()
@@ -107,7 +118,7 @@ t.render(() => {
                     authNotice.style.display = 'none';
                     return t.getRestApi()
                         .getToken()
-                        .then((token) => fetchCoversFromApi(token));
+                        .then((token) => fetchCardData(token));
                 })
                 .catch(() => {}); // silently ignore if REST API is unavailable
 
@@ -270,6 +281,32 @@ t.render(() => {
                         attachmentsDiv.appendChild(attachmentsList);
                         cardSection.appendChild(attachmentsDiv);
                     }
+                    // CHECKLISTS
+                    if (card.checklists?.length) {
+                        const checklistsDiv = document.createElement('div');
+                        checklistsDiv.classList.add('checklists');
+                        card.checklists.forEach((checklist) => {
+                            const clName = DOMPurify.sanitize(checklist.name);
+                            const items = [...checklist.checkItems].sort((a, b) => a.pos - b.pos);
+                            const completed = items.filter((i) => i.state === 'complete').length;
+                            const checklistEl = document.createElement('div');
+                            checklistEl.classList.add('checklist');
+                            checklistEl.innerHTML = `<h4>${clName} <span class="checklist-progress">${completed}/${items.length}</span></h4>`;
+                            const itemList = document.createElement('ul');
+                            items.forEach((item) => {
+                                const itemName = DOMPurify.sanitize(item.name);
+                                const isComplete = item.state === 'complete';
+                                const itemEl = document.createElement('li');
+                                itemEl.classList.add(isComplete ? 'complete' : 'incomplete');
+                                itemEl.innerHTML = `<i class="fa-${isComplete ? 'solid' : 'regular'} fa-square-check"></i> ${itemName}`;
+                                itemList.appendChild(itemEl);
+                            });
+                            checklistEl.appendChild(itemList);
+                            checklistsDiv.appendChild(checklistEl);
+                        });
+                        cardSection.appendChild(checklistsDiv);
+                    }
+
                     listSection.appendChild(cardSection);
                 });
             });

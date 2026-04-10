@@ -47,6 +47,10 @@
     display: none;
 }
 
+.no-checklists .checklists {
+    display: none;
+}
+
 .lists-only .card-section {
     display: none;
 }
