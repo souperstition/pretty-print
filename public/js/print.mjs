@@ -301,7 +301,7 @@ t.render(() => {
                                 const isComplete = item.state === 'complete';
                                 const itemEl = document.createElement('li');
                                 itemEl.classList.add(isComplete ? 'complete' : 'incomplete');
-                                itemEl.innerHTML = `<i class="fa-${isComplete ? 'solid' : 'regular'} fa-square-check"></i> ${itemName}`;
+                                itemEl.innerHTML = `<i class="${isComplete ? 'fa-solid fa-square-check' : 'fa-regular fa-square'}"></i> ${itemName}`;
                                 itemList.appendChild(itemEl);
                             });
                             checklistEl.appendChild(itemList);
