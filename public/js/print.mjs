@@ -129,11 +129,9 @@ t.render(() => {
 
                     cardSection.appendChild(cardTitle);
 
-                    await Promise.resolve();
-
                     // CARD BACKGROUND
                     // if the card cover has a background image, use it; otherwise give the color to its class list
-                    if (card.cover && card.cover.idUploadedBackground !== null) {
+                    if (card.cover?.idUploadedBackground != null) {
                         if (card.cover.brightness === 'dark') {
                             cardTitle.classList.add('dark-image');
                         } else {
@@ -143,7 +141,7 @@ t.render(() => {
                             'style',
                             `background-image: url(${card.cover.sharedSourceUrl}); background-size: cover; background-repeat: no-repeat;`
                         );
-                    } else {
+                    } else if (card.cover?.color) {
                         cardSection.classList.add(`${card.cover.color}-card`);
                     }
 
@@ -151,7 +149,7 @@ t.render(() => {
                     // if the card has labels, add them here
                     if (card.labels?.length) {
                         const labels = document.createElement('p');
-                        labels.classList?.add('labels');
+                        labels.classList.add('labels');
                         card.labels.forEach((label) => {
                             labels.innerHTML += `<span class="label ${label.color}">${label.name}</span>`; // add a class for the label's color so CSS can style it
                         });
@@ -161,12 +159,12 @@ t.render(() => {
                     // DATES SECTION
                     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                     const showDates = document.createElement('div');
-                    showDates.classList?.add('dates-section');
+                    showDates.classList.add('dates-section');
 
                     // LAST ACTIVITY
                     // card.dateLastActivity
                     const lastActive = document.createElement('span');
-                    lastActive.classList?.add('last-active');
+                    lastActive.classList.add('last-active');
                     const activeDate = new Date(card.dateLastActivity);
                     lastActive.innerHTML += `<i title="Last Activity" class="fa-regular fa-clock"></i> ${activeDate.toLocaleString(
                         'en-US',
@@ -179,7 +177,7 @@ t.render(() => {
                     if (card.due !== null) {
                         const dueDate = new Date(card.due);
                         const showDueDate = document.createElement('span');
-                        showDueDate.classList?.add('due-date');
+                        showDueDate.classList.add('due-date');
                         showDueDate.innerHTML += `<i title="Date Due" class="fa-regular fa-bell"></i> ${dueDate.toLocaleString(
                             'en-US',
                             options
@@ -198,9 +196,9 @@ t.render(() => {
 
                     // MEMBERS
                     // card.members []
-                    if (card.members?.length) {
+                    if (card.members.length) {
                         const membersList = document.createElement('ul');
-                        membersList.classList?.add('members-list');
+                        membersList.classList.add('members-list');
                         const membersTitle = document.createElement('li');
                         membersTitle.innerHTML = `<b>Members (${card.members.length}):</b>`;
                         membersList.appendChild(membersTitle);
@@ -227,9 +225,9 @@ t.render(() => {
                     }
                     // ATTACHMENTS
                     // card.attachments []
-                    if (card.attachments?.length) {
+                    if (card.attachments.length) {
                         const attachmentsDiv = document.createElement('div');
-                        attachmentsDiv.classList?.add('attachments');
+                        attachmentsDiv.classList.add('attachments');
                         attachmentsDiv.innerHTML += `<h4>Attachments! (${card.attachments.length}):</h4>`;
                         const attachmentsList = document.createElement('ul');
                         card.attachments.forEach((attachment) => {
