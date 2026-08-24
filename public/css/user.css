@@ -54,3 +54,25 @@
 .lists-only .card-section {
     display: none;
 }
+
+.no-image-attachments .attachments img {
+    display: none;
+}
+
+main .attachments .image-attachment span,
+main .attachments .image-attachment a {
+    display: none;
+}
+
+main .attachments .image-attachment {
+    list-style-type: none;
+}
+
+main[class~="no-image-attachments"] .attachments .image-attachment span,
+main[class~="no-image-attachments"] .attachments .image-attachment a {
+    display: unset;
+}
+
+main[class~="no-image-attachments"] .attachments .image-attachment {
+    list-style-type: disc;
+}

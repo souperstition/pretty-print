@@ -15,7 +15,8 @@
 
 <body>
     <div id="auth-notice" class="hide-from-print" style="display:none">
-        <p>Certain card details (card colors, checklists) need one-time authorization. <button id="auth-button">Authorize Pretty Print</button></p>
+        <p>Certain card details (card colors, checklists) need one-time authorization. <button
+                id="auth-button">Authorize Pretty Print</button></p>
     </div>
     <section class="hide-from-print" id="print-settings">
         <div id="formatting-options">
@@ -63,10 +64,16 @@
                         checked /><label for="show-members">Members List</label></span>
                 <span><input type="checkbox" id="attachments" class="detail-select" name="show-attachments"
                         value="show-attachments" checked /><label for="show-attachments">Attachments List</label></span>
-                <span><input type="checkbox" id="checklists" class="detail-select" name="checklists"
-                        value="checklists" checked /><label for="checklists">Checklists</label></span>
+                <span><input type="checkbox" id="checklists" class="detail-select" name="checklists" value="checklists"
+                        checked /><label for="checklists">Checklists</label></span>
                 <span><input type="checkbox" id="lists-only" name="lists-only" value="lists-only" /><label
                         for="lists-only">Show Lists Only (hides all cards)</label></span>
+            </div>
+            <div id="additional-details-checkboxes">
+                <span><input type="checkbox" id="show-image-attachments" class="detail-select"
+                        name="show-image-attachments" value="show-image-attachments" checked /><label
+                        for="show-image-attachments">Display Attached
+                        Images</label></span>
             </div>
         </div>
     </section>

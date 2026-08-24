@@ -10,7 +10,7 @@
 
 #auth-notice p {
     margin: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 0.875rem;
 }
 
@@ -23,7 +23,6 @@
     font-weight: 600;
     cursor: pointer;
 }
-
 
 #formatting-options {
     margin-top: 0.5rem;
@@ -45,7 +44,7 @@
 }
 
 #formatting-options h3 {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     margin-top: 0.5rem;
@@ -78,7 +77,7 @@
 }
 
 #print-settings label {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 0.75rem;
 }
@@ -89,7 +88,7 @@
 }
 
 #print-options h3 {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     margin-top: 0.5rem;
@@ -98,16 +97,19 @@
 }
 
 #list-checkboxes,
-#detail-checkboxes {
+#detail-checkboxes,
+#additional-details-checkboxes {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 0.5rem;
     flex-wrap: wrap;
+    margin-bottom: 0.5rem;
 }
 
 #list-checkboxes span,
-#detail-checkboxes span {
+#detail-checkboxes span,
+#additional-details-checkboxes span {
     display: flex;
     gap: 0.25rem;
     align-items: center;
@@ -118,11 +120,12 @@
 }
 
 #list-checkboxes span:hover,
-#detail-checkboxes span:hover {
+#detail-checkboxes span:hover,
+#additional-details-checkboxes span:hover {
     background-color: #aaaaaa;
 }
 
-input[type=checkbox] {
+input[type='checkbox'] {
     margin: 0;
 }
 

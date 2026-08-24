@@ -1,6 +1,6 @@
 /* BOARD NAME */
 #board-name {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 3rem;
     text-align: center;
@@ -17,7 +17,7 @@
 }
 
 .list-title {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 2.25rem;
     text-transform: uppercase;
@@ -28,7 +28,7 @@
 
 /* CARD CONTAINER */
 .card-section {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 1rem;
     margin: 1rem;
@@ -39,7 +39,7 @@
 .card-section h1,
 .card-section h2,
 .card-section h3 {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
 }
 
@@ -58,7 +58,7 @@
 .card-section h4,
 .card-section h5,
 .card-section h6 {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -120,7 +120,7 @@
 }
 
 h2.card-title {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
     border-bottom: 1px solid #000000;
@@ -135,7 +135,12 @@ h2.dark-image {
 }
 
 h2.bright-image {
-    background: linear-gradient(0deg, rgba(255, 255, 255, .4) 0%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
     color: #000000;
     border-bottom: 1px solid #b6b6b6;
 }
@@ -148,7 +153,7 @@ h2.bright-image {
 }
 
 .labels .label {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 0.75rem;
     display: inline-block;
@@ -159,43 +164,43 @@ h2.bright-image {
 
 /* background colors for each label type */
 .labels .red {
-    background-color: #EB5A46;
+    background-color: #eb5a46;
 }
 
 .labels .orange {
-    background-color: #FF9F1A;
+    background-color: #ff9f1a;
 }
 
 .labels .yellow {
-    background-color: #F2D600;
+    background-color: #f2d600;
 }
 
 .labels .green {
-    background-color: #61BD4F;
+    background-color: #61bd4f;
 }
 
 .labels .lime {
-    background-color: #51E898;
+    background-color: #51e898;
 }
 
 .labels .sky {
-    background-color: #00C2E0;
+    background-color: #00c2e0;
 }
 
 .labels .blue {
-    background-color: #0079BF;
+    background-color: #0079bf;
 }
 
 .labels .pink {
-    background-color: #FF78CB;
+    background-color: #ff78cb;
 }
 
 .labels .purple {
-    background-color: #C377E0;
+    background-color: #c377e0;
 }
 
 .labels .null {
-    background-color: #B3BAC5;
+    background-color: #b3bac5;
 }
 
 .labels .black {
@@ -219,22 +224,22 @@ h2.bright-image {
 }
 
 .due-complete {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 0.75rem;
     color: #ffffff;
-    background-color: #61BD4F;
+    background-color: #61bd4f;
     padding: 0.25rem;
     border-radius: 0.25rem;
     margin-left: 0.5rem;
 }
 
 .due-overdue {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 0.75rem;
     color: #ffffff;
-    background-color: #EB5A46;
+    background-color: #eb5a46;
     padding: 0.25rem;
     border-radius: 0.25rem;
     margin-left: 0.5rem;
@@ -288,7 +293,7 @@ h2.bright-image {
 
 .attachments h4 {
     width: 100%;
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     border-bottom: 1px solid rgb(0, 0, 0);
@@ -313,7 +318,7 @@ h2.bright-image {
 }
 
 .checklist h4 {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     border-bottom: 1px solid #000000;

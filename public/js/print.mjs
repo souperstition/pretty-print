@@ -46,6 +46,7 @@ const showMembers = document.getElementById('members');
 const showAttachments = document.getElementById('attachments');
 const showChecklists = document.getElementById('checklists');
 const listsOnly = document.getElementById('lists-only');
+const showImageAttachments = document.getElementById('show-image-attachments');
 
 // FUNCTION CALL TO TOGGLE USER OPTIONS
 toggleClassName(allowStyles, wrapper, 'no-styles');
@@ -62,6 +63,7 @@ toggleClassName(showMembers, mainSection, 'no-members');
 toggleClassName(showAttachments, mainSection, 'no-attachments');
 toggleClassName(showChecklists, mainSection, 'no-checklists');
 toggleClassName(listsOnly, mainSection, 'lists-only');
+toggleClassName(showImageAttachments, mainSection, 'no-image-attachments');
 
 const allDetailsBtn = document.getElementById('all-none-details');
 const allDetailBoxes = document.getElementsByClassName('detail-select');
@@ -85,10 +87,12 @@ t.render(() => {
 
             const fetchCardData = (token) =>
                 Promise.all([
-                    fetch(`https://api.trello.com/1/boards/${board.id}/cards?fields=id,cover&key=${TRELLO_APP_KEY}&token=${token}`)
-                        .then((r) => r.json()),
-                    fetch(`https://api.trello.com/1/boards/${board.id}/checklists?checkItem_fields=name,state,pos&key=${TRELLO_APP_KEY}&token=${token}`)
-                        .then((r) => r.json())
+                    fetch(
+                        `https://api.trello.com/1/boards/${board.id}/cards?fields=id,cover&key=${TRELLO_APP_KEY}&token=${token}`
+                    ).then((r) => r.json()),
+                    fetch(
+                        `https://api.trello.com/1/boards/${board.id}/checklists?checkItem_fields=name,state,pos&key=${TRELLO_APP_KEY}&token=${token}`
+                    ).then((r) => r.json())
                 ]).then(([restCards, checklists]) => {
                     restCards.forEach((rc) => {
                         const card = cardMap.get(rc.id);
@@ -107,240 +111,268 @@ t.render(() => {
                     });
                 });
 
-            const coverFetch = t.getRestApi()
+            const coverFetch = t
+                .getRestApi()
                 .isAuthorized()
                 .then((isAuthorized) => {
                     if (!isAuthorized) {
                         authNotice.style.display = '';
                         authButton.onclick = () =>
-                            t.getRestApi()
+                            t
+                                .getRestApi()
                                 .authorize({ scope: 'read', expiration: 'never' })
                                 .then(() => location.reload());
                         return;
                     }
                     authNotice.style.display = 'none';
-                    return t.getRestApi()
+                    return t
+                        .getRestApi()
                         .getToken()
                         .then((token) => fetchCardData(token));
                 })
                 .catch(() => {}); // silently ignore if REST API is unavailable
 
             return coverFetch.then(() => {
+                // iterate through each list
+                lists.forEach((list) => {
+                    // CHECKBOXES
+                    // create a checkbox for each list and add the checkboxes to the top of the page
+                    const listName = DOMPurify.sanitize(list.name);
+                    const listSelect = document.createElement('span');
+                    const listCheckBox = document.createElement('input');
+                    listCheckBox.classList.add('list-select');
+                    listCheckBox.setAttribute('type', 'checkbox');
+                    listCheckBox.setAttribute('id', listName);
+                    listCheckBox.setAttribute('name', listName);
+                    listCheckBox.setAttribute('value', listName);
+                    listCheckBox.checked = true;
+                    const checkLabel = document.createElement('label');
+                    checkLabel.setAttribute('for', listName);
+                    checkLabel.innerText = listName;
+                    listSelect.appendChild(listCheckBox);
+                    listSelect.appendChild(checkLabel);
+                    listBoxes.appendChild(listSelect);
 
-            // iterate through each list
-            lists.forEach((list) => {
-                // CHECKBOXES
-                // create a checkbox for each list and add the checkboxes to the top of the page
-                const listName = DOMPurify.sanitize(list.name);
-                const listSelect = document.createElement('span');
-                const listCheckBox = document.createElement('input');
-                listCheckBox.classList.add('list-select');
-                listCheckBox.setAttribute('type', 'checkbox');
-                listCheckBox.setAttribute('id', listName);
-                listCheckBox.setAttribute('name', listName);
-                listCheckBox.setAttribute('value', listName);
-                listCheckBox.checked = true;
-                const checkLabel = document.createElement('label');
-                checkLabel.setAttribute('for', listName);
-                checkLabel.innerText = listName;
-                listSelect.appendChild(listCheckBox);
-                listSelect.appendChild(checkLabel);
-                listBoxes.appendChild(listSelect);
+                    // LIST CONTAINER
+                    const listSection = document.createElement('section');
+                    listSection.classList.add('list-section');
+                    listSection.classList.add('print');
+                    listSection.setAttribute('id', `${listName}-title`);
+                    mainSection.appendChild(listSection);
+                    listSection.innerHTML += `<h2 class="list-title">${listName}</h2>`;
 
-                // LIST CONTAINER
-                const listSection = document.createElement('section');
-                listSection.classList.add('list-section');
-                listSection.classList.add('print');
-                listSection.setAttribute('id', `${listName}-title`);
-                mainSection.appendChild(listSection);
-                listSection.innerHTML += `<h2 class="list-title">${listName}</h2>`;
+                    // call function to toggle list on/off
+                    const listDiv = document.getElementById(`${listName}-title`);
+                    toggleClassName(listCheckBox, listDiv, 'print');
 
-                // call function to toggle list on/off
-                const listDiv = document.getElementById(`${listName}-title`);
-                toggleClassName(listCheckBox, listDiv, 'print');
+                    // CARD CONTAINER
+                    list.cards.forEach(async (listCard) => {
+                        const card = cardMap.get(listCard.id);
+                        if (!card) return;
+                        const cardName = DOMPurify.sanitize(card.name);
+                        const cardSection = document.createElement('section');
+                        cardSection.classList.add('card-section');
 
-                // CARD CONTAINER
-                list.cards.forEach(async (listCard) => {
-                    const card = cardMap.get(listCard.id);
-                    if (!card) return;
-                    const cardName = DOMPurify.sanitize(card.name);
-                    const cardSection = document.createElement('section');
-                    cardSection.classList.add('card-section');
+                        const cardTitle = document.createElement('h2');
+                        cardTitle.classList.add('card-title');
+                        cardTitle.innerText = cardName;
 
-                    const cardTitle = document.createElement('h2');
-                    cardTitle.classList.add('card-title');
-                    cardTitle.innerText = cardName;
+                        cardSection.appendChild(cardTitle);
 
-                    cardSection.appendChild(cardTitle);
-
-                    // CARD BACKGROUND
-                    // if the card cover has a background image, use it; otherwise give the color to its class list
-                    if (card.cover?.idUploadedBackground != null) {
-                        if (card.cover.brightness === 'dark') {
-                            cardTitle.classList.add('dark-image');
+                        // CARD BACKGROUND
+                        // if the card cover has a background image, use it; otherwise give the color to its class list
+                        if (card.cover?.idUploadedBackground != null) {
+                            if (card.cover.brightness === 'dark') {
+                                cardTitle.classList.add('dark-image');
+                            } else {
+                                cardTitle.classList.add('bright-image');
+                            }
+                            cardSection.setAttribute(
+                                'style',
+                                `background-image: url(${card.cover.sharedSourceUrl}); background-size: cover; background-repeat: no-repeat;`
+                            );
                         } else {
-                            cardTitle.classList.add('bright-image');
+                            cardSection.classList.add(`${card.cover?.color ?? 'null'}-card`);
                         }
-                        cardSection.setAttribute(
-                            'style',
-                            `background-image: url(${card.cover.sharedSourceUrl}); background-size: cover; background-repeat: no-repeat;`
-                        );
-                    } else {
-                        cardSection.classList.add(`${card.cover?.color ?? 'null'}-card`);
-                    }
 
-                    // CARD LABELS
-                    // if the card has labels, add them here
-                    if (card.labels?.length) {
-                        const labels = document.createElement('p');
-                        labels.classList.add('labels');
-                        card.labels.forEach((label) => {
-                            labels.innerHTML += `<span class="label ${label.color}">${label.name}</span>`; // add a class for the label's color so CSS can style it
-                        });
-                        cardSection.appendChild(labels);
-                    }
+                        // CARD LABELS
+                        // if the card has labels, add them here
+                        if (card.labels?.length) {
+                            const labels = document.createElement('p');
+                            labels.classList.add('labels');
+                            card.labels.forEach((label) => {
+                                labels.innerHTML += `<span class="label ${label.color}">${label.name}</span>`; // add a class for the label's color so CSS can style it
+                            });
+                            cardSection.appendChild(labels);
+                        }
 
-                    // DATES SECTION
-                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                    const showDates = document.createElement('div');
-                    showDates.classList.add('dates-section');
+                        // DATES SECTION
+                        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                        const showDates = document.createElement('div');
+                        showDates.classList.add('dates-section');
 
-                    // LAST ACTIVITY
-                    // card.dateLastActivity
-                    const lastActive = document.createElement('span');
-                    lastActive.classList.add('last-active');
-                    const activeDate = new Date(card.dateLastActivity);
-                    lastActive.innerHTML += `<i title="Last Activity" class="fa-regular fa-clock"></i> ${activeDate.toLocaleString(
-                        'en-US',
-                        options
-                    )} at ${activeDate.toLocaleTimeString()}`;
-                    showDates.appendChild(lastActive);
-
-                    // DUE DATE
-                    // card.due, card.dueComplete
-                    if (card.due !== null) {
-                        const dueDate = new Date(card.due);
-                        const showDueDate = document.createElement('span');
-                        showDueDate.classList.add('due-date');
-                        showDueDate.innerHTML += `<i title="Date Due" class="fa-regular fa-bell"></i> ${dueDate.toLocaleString(
+                        // LAST ACTIVITY
+                        // card.dateLastActivity
+                        const lastActive = document.createElement('span');
+                        lastActive.classList.add('last-active');
+                        const activeDate = new Date(card.dateLastActivity);
+                        lastActive.innerHTML += `<i title="Last Activity" class="fa-regular fa-clock"></i> ${activeDate.toLocaleString(
                             'en-US',
                             options
-                        )} at ${dueDate.toLocaleTimeString()}`;
-                        if (card.dueComplete) {
-                            showDueDate.innerHTML += `<span class="due-complete"> complete <i class="fa-solid fa-check"></i></span>`;
-                        } else {
-                            const today = new Date();
-                            if (dueDate[Symbol.toPrimitive]('number') < today[Symbol.toPrimitive]('number')) {
-                                showDueDate.innerHTML += `<span class="due-overdue"> overdue <i class="fa-solid fa-triangle-exclamation"></i></span>`;
+                        )} at ${activeDate.toLocaleTimeString()}`;
+                        showDates.appendChild(lastActive);
+
+                        // DUE DATE
+                        // card.due, card.dueComplete
+                        if (card.due !== null) {
+                            const dueDate = new Date(card.due);
+                            const showDueDate = document.createElement('span');
+                            showDueDate.classList.add('due-date');
+                            showDueDate.innerHTML += `<i title="Date Due" class="fa-regular fa-bell"></i> ${dueDate.toLocaleString(
+                                'en-US',
+                                options
+                            )} at ${dueDate.toLocaleTimeString()}`;
+                            if (card.dueComplete) {
+                                showDueDate.innerHTML += `<span class="due-complete"> complete <i class="fa-solid fa-check"></i></span>`;
+                            } else {
+                                const today = new Date();
+                                if (dueDate[Symbol.toPrimitive]('number') < today[Symbol.toPrimitive]('number')) {
+                                    showDueDate.innerHTML += `<span class="due-overdue"> overdue <i class="fa-solid fa-triangle-exclamation"></i></span>`;
+                                }
                             }
+                            showDates.appendChild(showDueDate);
                         }
-                        showDates.appendChild(showDueDate);
-                    }
-                    cardSection.appendChild(showDates);
+                        cardSection.appendChild(showDates);
 
-                    // MEMBERS
-                    // card.members []
-                    if (card.members.length) {
-                        const membersList = document.createElement('ul');
-                        membersList.classList.add('members-list');
-                        const membersTitle = document.createElement('li');
-                        membersTitle.innerHTML = `<b>Members (${card.members.length}):</b>`;
-                        membersList.appendChild(membersTitle);
-                        card.members.forEach((member) => {
-                            const memberItem = document.createElement('li');
-                            memberItem.innerHTML = `<img class="member-avatar" src=${member.avatar} /> <span class="member-name">${member.fullName}</span>`;
-                            membersList.appendChild(memberItem);
-                        });
-                        cardSection.appendChild(membersList);
-                    }
-
-                    // CARD DESC
-                    // convert markdown to HTML
-                    const cardDesc = await unified()
-                        .use(remarkParse)
-                        .use(remarkGfm)
-                        .use(remarkRehype)
-                        .use(rehypeStringify)
-                        .process(card.desc);
-                    // display the description div only if the card has a description
-                    if (card.desc !== '') {
-                        const sanitizedCardDesc = DOMPurify.sanitize(cardDesc);
-                        cardSection.innerHTML += `<section class="card-desc">${sanitizedCardDesc}</section>`;
-                    }
-                    // ATTACHMENTS
-                    // card.attachments []
-                    if (card.attachments.length) {
-                        const attachmentsDiv = document.createElement('div');
-                        attachmentsDiv.classList.add('attachments');
-                        attachmentsDiv.innerHTML += `<h4>Attachments! (${card.attachments.length}):</h4>`;
-                        const attachmentsList = document.createElement('ul');
-                        card.attachments.forEach((attachment) => {
-                            const attachmentName = DOMPurify.sanitize(attachment.name);
-                            const attachmentUrl = DOMPurify.sanitize(attachment.url);
-                            const attachmentLi = document.createElement('li');
-                            attachmentLi.innerHTML = `${attachmentName}: <a href=${attachmentUrl}>${attachmentUrl}</a>`;
-                            attachmentsList.appendChild(attachmentLi);
-                        });
-                        attachmentsDiv.appendChild(attachmentsList);
-                        cardSection.appendChild(attachmentsDiv);
-                    }
-                    // CHECKLISTS
-                    if (card.checklists?.length) {
-                        const checklistsDiv = document.createElement('div');
-                        checklistsDiv.classList.add('checklists');
-                        card.checklists.forEach((checklist) => {
-                            const clName = DOMPurify.sanitize(checklist.name);
-                            const items = [...checklist.checkItems].sort((a, b) => a.pos - b.pos);
-                            const completed = items.filter((i) => i.state === 'complete').length;
-                            const checklistEl = document.createElement('div');
-                            checklistEl.classList.add('checklist');
-                            checklistEl.innerHTML = `<h4>${clName} <span class="checklist-progress">${completed}/${items.length}</span></h4>`;
-                            const itemList = document.createElement('ul');
-                            items.forEach((item) => {
-                                const itemName = DOMPurify.sanitize(item.name);
-                                const isComplete = item.state === 'complete';
-                                const itemEl = document.createElement('li');
-                                itemEl.classList.add(isComplete ? 'complete' : 'incomplete');
-                                itemEl.innerHTML = `<i class="${isComplete ? 'fa-solid fa-square-check' : 'fa-regular fa-square'}"></i> ${itemName}`;
-                                itemList.appendChild(itemEl);
+                        // MEMBERS
+                        // card.members []
+                        if (card.members.length) {
+                            const membersList = document.createElement('ul');
+                            membersList.classList.add('members-list');
+                            const membersTitle = document.createElement('li');
+                            membersTitle.innerHTML = `<b>Members (${card.members.length}):</b>`;
+                            membersList.appendChild(membersTitle);
+                            card.members.forEach((member) => {
+                                const memberItem = document.createElement('li');
+                                memberItem.innerHTML = `<img class="member-avatar" src=${member.avatar} /> <span class="member-name">${member.fullName}</span>`;
+                                membersList.appendChild(memberItem);
                             });
-                            checklistEl.appendChild(itemList);
-                            checklistsDiv.appendChild(checklistEl);
-                        });
-                        cardSection.appendChild(checklistsDiv);
-                    }
+                            cardSection.appendChild(membersList);
+                        }
 
-                    listSection.appendChild(cardSection);
+                        // CARD DESC
+                        // convert markdown to HTML
+                        const cardDesc = await unified()
+                            .use(remarkParse)
+                            .use(remarkGfm)
+                            .use(remarkRehype)
+                            .use(rehypeStringify)
+                            .process(card.desc);
+                        // display the description div only if the card has a description
+                        if (card.desc !== '') {
+                            const sanitizedCardDesc = DOMPurify.sanitize(cardDesc);
+                            cardSection.innerHTML += `<section class="card-desc">${sanitizedCardDesc}</section>`;
+                        }
+                        // ATTACHMENTS
+                        // card.attachments []
+                        if (card.attachments.length) {
+                            const attachmentsDiv = document.createElement('div');
+                            attachmentsDiv.classList.add('attachments');
+                            attachmentsDiv.innerHTML += `<h4>Attachments! (${card.attachments.length}):</h4>`;
+                            const attachmentsList = document.createElement('ul');
+                            card.attachments.forEach((attachment) => {
+                                const attachmentName = DOMPurify.sanitize(attachment.name);
+                                const attachmentUrl = DOMPurify.sanitize(attachment.url);
+                                const isImage = attachment.url.match(/\.(jpeg|jpg|gif|png|webp)$/) != null;
+
+                                console.log(isImage, attachment.url);
+
+                                // Create list item for each attachment
+                                const attachmentLi = document.createElement('li');
+                                const attachmentLink = document.createElement('a');
+
+                                // Create link for each attachment
+                                attachmentLink.setAttribute('href', attachmentUrl);
+                                attachmentLink.setAttribute('target', '_blank');
+                                attachmentLink.innerText = attachmentName;
+                                const attachmentLabel = document.createElement('span');
+                                attachmentLabel.innerHTML = `${attachmentName}: `;
+                                
+
+                                if (isImage) {
+                                    // Create image element for image attachments if the option is selected
+                                    const attachmentImg = document.createElement('img');
+                                    attachmentImg.classList.add('attachment-image');
+                                    attachmentImg.setAttribute('src', attachmentUrl);
+                                    attachmentsDiv.appendChild(attachmentImg);
+                                    attachmentLi.appendChild(attachmentImg);
+                                    attachmentLi.classList.add('image-attachment');                                    
+                                }
+
+                                attachmentLi.appendChild(attachmentLabel);
+                                attachmentLi.appendChild(attachmentLink);
+                                attachmentsList.appendChild(attachmentLi);
+                            });
+                            attachmentsDiv.appendChild(attachmentsList);
+                            cardSection.appendChild(attachmentsDiv);
+                        }
+                        // CHECKLISTS
+                        if (card.checklists?.length) {
+                            const checklistsDiv = document.createElement('div');
+                            checklistsDiv.classList.add('checklists');
+                            card.checklists.forEach((checklist) => {
+                                const clName = DOMPurify.sanitize(checklist.name);
+                                const items = [...checklist.checkItems].sort((a, b) => a.pos - b.pos);
+                                const completed = items.filter((i) => i.state === 'complete').length;
+                                const checklistEl = document.createElement('div');
+                                checklistEl.classList.add('checklist');
+                                checklistEl.innerHTML = `<h4>${clName} <span class="checklist-progress">${completed}/${items.length}</span></h4>`;
+                                const itemList = document.createElement('ul');
+                                items.forEach((item) => {
+                                    const itemName = DOMPurify.sanitize(item.name);
+                                    const isComplete = item.state === 'complete';
+                                    const itemEl = document.createElement('li');
+                                    itemEl.classList.add(isComplete ? 'complete' : 'incomplete');
+                                    itemEl.innerHTML = `<i class="${isComplete ? 'fa-solid fa-square-check' : 'fa-regular fa-square'}"></i> ${itemName}`;
+                                    itemList.appendChild(itemEl);
+                                });
+                                checklistEl.appendChild(itemList);
+                                checklistsDiv.appendChild(checklistEl);
+                            });
+                            cardSection.appendChild(checklistsDiv);
+                        }
+
+                        listSection.appendChild(cardSection);
+                    });
                 });
-            });
 
-            allListsBtn.addEventListener('click', () => {
-                for (let box of allListBoxes) {
-                    const matchingList = document.getElementById(`${box.id}-title`);
-                    if (allListsBtn.innerText === '(select all)') {
-                        matchingList.classList.add('print');
-                        box.checked = true;
-                    } else {
-                        matchingList.classList.remove('print');
-                        box.checked = false;
+                allListsBtn.addEventListener('click', () => {
+                    for (let box of allListBoxes) {
+                        const matchingList = document.getElementById(`${box.id}-title`);
+                        if (allListsBtn.innerText === '(select all)') {
+                            matchingList.classList.add('print');
+                            box.checked = true;
+                        } else {
+                            matchingList.classList.remove('print');
+                            box.checked = false;
+                        }
                     }
-                }
-                allListsBtn.innerText = allListsBtn.innerText === '(select all)' ? '(select none)' : '(select all)';
-            });
+                    allListsBtn.innerText = allListsBtn.innerText === '(select all)' ? '(select none)' : '(select all)';
+                });
 
-            allDetailsBtn.addEventListener('click', () => {
-                for (let box of allDetailBoxes) {
-                    if (allDetailsBtn.innerText === '(select all)') {
-                        mainSection.classList.remove(`no-${box.id}`);
-                        box.checked = true;
-                    } else {
-                        mainSection.classList.add(`no-${box.id}`);
-                        box.checked = false;
+                allDetailsBtn.addEventListener('click', () => {
+                    for (let box of allDetailBoxes) {
+                        if (allDetailsBtn.innerText === '(select all)') {
+                            mainSection.classList.remove(`no-${box.id}`);
+                            box.checked = true;
+                        } else {
+                            mainSection.classList.add(`no-${box.id}`);
+                            box.checked = false;
+                        }
                     }
-                }
-                allDetailsBtn.innerText = allDetailsBtn.innerText === '(select all)' ? '(select none)' : '(select all)';
-            });
-
+                    allDetailsBtn.innerText =
+                        allDetailsBtn.innerText === '(select all)' ? '(select none)' : '(select all)';
+                });
             }); // end coverFetch.then
         })
         .catch((err) => {
