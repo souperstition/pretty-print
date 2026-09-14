@@ -8,7 +8,7 @@ import rehypeStringify from 'https://esm.sh/rehype-stringify@10?bundle';
 import DOMPurify from 'https://esm.sh/dompurify@3?bundle';
 
 const Promise = TrelloPowerUp.Promise;
-const TRELLO_APP_KEY = '5ad5278d9390d3a20091a3c88a662dee';
+const TRELLO_APP_KEY = '0cfc473c7445d2e57919a79a9818bc92';
 const t = TrelloPowerUp.iframe({ appKey: TRELLO_APP_KEY, appName: 'Pretty Print' });
 
 // TARGET CONTAINERS AND ELEMENTS ALREADY ADDED TO HTML
@@ -130,7 +130,9 @@ t.render(() => {
                         .getToken()
                         .then((token) => fetchCardData(token));
                 })
-                .catch(() => {}); // silently ignore if REST API is unavailable
+                .catch((e) => {
+                    console.error('Error fetching card data from REST API:', e);
+                });
 
             return coverFetch.then(() => {
                 // iterate through each list
@@ -168,6 +170,7 @@ t.render(() => {
                     // CARD CONTAINER
                     list.cards.forEach(async (listCard) => {
                         const card = cardMap.get(listCard.id);
+                        console.log(card);
                         if (!card) return;
                         const cardName = DOMPurify.sanitize(card.name);
                         const cardSection = document.createElement('section');
@@ -284,8 +287,6 @@ t.render(() => {
                                 const attachmentName = DOMPurify.sanitize(attachment.name);
                                 const attachmentUrl = DOMPurify.sanitize(attachment.url);
                                 const isImage = attachment.url.match(/\.(jpeg|jpg|gif|png|webp)$/) != null;
-
-                                console.log(isImage, attachment.url);
 
                                 // Create list item for each attachment
                                 const attachmentLi = document.createElement('li');
